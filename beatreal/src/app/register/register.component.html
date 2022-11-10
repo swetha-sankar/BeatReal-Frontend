@@ -1,0 +1,32 @@
+<h1 class="header">BeatReal</h1>
+<h2 class="register-title"> Create an Account</h2>
+<form [formGroup]= "registerForm" (ngSubmit)="register()">
+    <mat-form-field> 
+        <input type = "email" matInput placeholder = "Email" formControlName = "email">
+        <mat-error *ngIf="this.registerForm.get('email')?.touched && this.registerForm.get('email')?.hasError('required')"> Email is required</mat-error>
+        <mat-error *ngIf="this.registerForm.get('email')?.touched && this.registerForm.get('email')?.hasError('email')"> Email must be a valid Email</mat-error>
+    </mat-form-field>
+    <mat-form-field> 
+        <input type = "text" matInput placeholder = "First Name" formControlName = "firstname">
+        <mat-error *ngIf="this.registerForm.get('firstname')?.touched && this.registerForm.get('firstname')?.hasError('required')"> First Name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field> 
+        <input type = "text" matInput placeholder = "Last Name" formControlName = "firstname">
+        <mat-error *ngIf="this.registerForm.get('lastname')?.touched && this.registerForm.get('lastname')?.hasError('required')"> Last Name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field> 
+        <input type = "text" matInput placeholder = "Username" formControlName = "username">
+        <!-- todo: add check to see if username already exists -->
+        <mat-error *ngIf="this.registerForm.get('username')?.touched && this.registerForm.get('username')?.hasError('required')"> Username is required</mat-error>
+    </mat-form-field>
+    <mat-form-field> 
+        <input type = "text" matInput placeholder = "Password" formControlName = "password">
+        <mat-error *ngIf="this.registerForm.get('password')?.touched && this.registerForm.get('password')?.hasError('required')"> Password is required</mat-error>
+    </mat-form-field>
+    <mat-form-field> 
+        <input type = "text" matInput placeholder = "Phone Number" formControlName = "phoneNumber">
+        <mat-error *ngIf="this.registerForm.get('phoneNumber')?.touched && this.registerForm.get('phoneNumber')?.hasError('required')"> Phone Number is required</mat-error>
+    </mat-form-field>
+    <button mat-raised-button [disabled] ="!registerForm.valid"> Create Account</button>
+    <button mat-raised-button class="Login"> <a [routerLink] = "['../login']">Go to Login </a> </button>
+</form>

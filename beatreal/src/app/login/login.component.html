@@ -1,0 +1,15 @@
+<h1 class="header">BeatReal</h1>
+<h2 class="login-title"> Login</h2>  
+<form [formGroup]="loginForm" (ngSubmit) = "login()">
+    <mat-form-field> 
+        <input type = "text" matInput placeholder = "Username" formControlName = "username">
+        <!-- todo: add check to see if username already exists -->
+        <mat-error *ngIf="this.loginForm.get('username')?.touched && this.loginForm.get('username')?.hasError('required')"> Username is required</mat-error>
+    </mat-form-field>
+    <mat-form-field> 
+        <input type = "text" matInput placeholder = "Password" formControlName = "password">
+        <mat-error *ngIf="this.loginForm.get('password')?.touched && this.loginForm.get('password')?.hasError('required')"> Password is required</mat-error>
+    </mat-form-field>
+    <button mat-raised-button class="login" color = "primary"> <a [routerLink] = "['../home']"> Login </a></button>
+    <button mat-raised-button class="register"> <a [routerLink] = "['../register']">Create an Account </a> </button>
+</form>

@@ -1,0 +1,29 @@
+.container, .header, .register-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Heebo', sans-serif;
+}
+
+button.login {
+    width: 100%;
+    border-radius: 18px;
+}
+
+button.register {
+    width: 100%;
+    border-radius: 18px;
+}
+.header {
+    margin-bottom: 1em;
+    font-size: 50px;
+}
+.login-form {
+    border: 1px solid;
+    padding: 6vh;
+    border-radius: 8px;
+}
+mat-form-field, .login-form {
+    width: 45vw; 
+}
