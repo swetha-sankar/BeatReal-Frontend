@@ -1,102 +1,126 @@
 img {
-    max-width: 100%; }
-  
-  .site-header {
-    position: relative; }
-  
-  .site-header .mdl-layout__header-row {
-    padding: 0;
-    justify-content: center; }
-  
-  .site-description {
-    display: block;
-    font-family: 'Heebo', sans-serif;
-    font-size: 14px;
-    text-align: center;
-    font-weight: 400;
-    margin-bottom: 10px; 
-    color: black;}
-  
-  .is-compact .mdl-layout__title span {
-    display: none; }
-  
-  .site-logo-row {
-    min-height: 200px; }
-  
-  .is-compact .site-logo-row {
-    min-height: auto; }
-  
-  .site-logo {
-    background: url(../../assets/Logo.png) 50% no-repeat;
-    background-size: cover;
-    height: 96px;
-    width: 340px;
-    margin: 15px auto; }
-  
-  .is-compact .site-logo {
-    height: 50px;
-    width: 50px;
-    margin: 7px auto; }
-  
-    .site-navigation-row {
-        background-color: black;
-        text-transform: uppercase;
-        height: 45px; }
-        .site-navigation-row .mdl-navigation {
-          text-align: center;
-          max-width: 900px;
-          width: 100%; }
-        .site-navigation-row .mdl-navigation__link {
-          flex: 1;
-          line-height: 42px;
-          color: #fff; }
-        .site-navigation-row .is-active {
-          position: relative;
-          font-family: 'Heebo', sans-serif;
-          font-weight: bold;
-          opacity: 1; }
-        .site-navigation-row .mdl-navigation__link:hover {
-          opacity: 1; }
-  
-  .mdl-layout__content {
-    background-color: black; }
-  
-  .site-content {
-    margin: 1em auto;
-    min-height: 580px; }
-  
-  .page-content {
-    padding-bottom: 2em; }
-  
-  .site-max-width {
-    max-width: 900px;
-    margin: auto; }
-  
-  .site-copy {
-    max-width: 700px; }
+  max-width: 100%;
+}
 
-  img.article-image {
-    width: 100%;
-    height: auto; }
-  
-  .demo-card-image.mdl-card {
-    width: 192px;
-    height: 192px; }
-  
-  .memory1 {
-    background: url("../../assets/emptyProfPic.png") center/cover; }
-  
-  .memory2 {
-    background: url("../../assets/emptyProfPic.png") center/cover; }
-  
-  .demo-card-image > .mdl-card__actions {
-    height: 52px;
-    padding: 16px;
-    background: black; }
-  
-  .demo-card-image__filename {
-    color: #fff;
-    font-family: 'Heebo', sans-serif;
-    font-size: 14px;
-    font-weight: 500; }
-  
+.site-header {
+  position: relative;
+}
+
+.site-header .mdl-layout__header-row {
+  padding: 0;
+  justify-content: center;
+}
+
+.site-description {
+  display: block;
+  font-family: "Heebo", sans-serif;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.is-compact .mdl-layout__title span {
+  display: none;
+}
+
+.site-logo-row {
+  min-height: 200px;
+}
+
+.is-compact .site-logo-row {
+  min-height: auto;
+}
+
+.site-logo {
+  background: url(../../assets/Logo.png) 50% no-repeat;
+  background-size: cover;
+  height: 96px;
+  width: 340px;
+  margin: 15px auto;
+}
+
+.is-compact .site-logo {
+  height: 50px;
+  width: 50px;
+  margin: 7px auto;
+}
+
+.site-navigation-row {
+  background-color: black;
+  text-transform: uppercase;
+  height: 45px;
+}
+.site-navigation-row .mdl-navigation {
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+}
+.site-navigation-row .mdl-navigation__link {
+  flex: 1;
+  line-height: 42px;
+  color: #fff;
+}
+.site-navigation-row .is-active {
+  position: relative;
+  font-family: "Heebo", sans-serif;
+  font-weight: bold;
+  opacity: 1;
+}
+.site-navigation-row .mdl-navigation__link:hover {
+  opacity: 1;
+}
+
+.mdl-layout__content {
+  background-color: black;
+}
+
+.site-content {
+  margin: 1em auto;
+  min-height: 580px;
+}
+
+.page-content {
+  padding-bottom: 2em;
+}
+
+.site-max-width {
+  max-width: 900px;
+  margin: auto;
+}
+
+.site-copy {
+  max-width: 700px;
+}
+
+img.article-image {
+  width: 100%;
+  height: auto;
+}
+
+.demo-card-image.mdl-card {
+  width: 192px;
+  height: 192px;
+}
+
+.memory1 {
+  background: url("../../assets/emptyProfPic.png") center/cover;
+}
+
+.memory2 {
+  background: url("../../assets/emptyProfPic.png") center/cover;
+}
+
+.demo-card-image > .mdl-card__actions {
+  height: 52px;
+  padding: 16px;
+  background: black;
+}
+
+.demo-card-image__filename {
+  color: #fff;
+  font-family: "Heebo", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
