@@ -1,75 +1,20 @@
+#profile {
+  background-color: black;
+  color: white;
+}
+
+section {
+  padding: 0 10%;
+}
+
+.banner {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
 img {
   max-width: 100%;
-}
-
-.site-header {
-  position: relative;
-}
-
-.site-header .mdl-layout__header-row {
-  padding: 0;
-  justify-content: center;
-}
-
-.site-description {
-  display: block;
-  font-family: "Heebo", sans-serif;
-  font-size: 14px;
-  text-align: center;
-  font-weight: 400;
-  margin-bottom: 10px;
-  color: black;
-}
-
-.is-compact .mdl-layout__title span {
-  display: none;
-}
-
-.site-logo-row {
-  min-height: 200px;
-}
-
-.is-compact .site-logo-row {
-  min-height: auto;
-}
-
-.site-logo {
-  background: url(../../assets/Logo.png) 50% no-repeat;
-  background-size: cover;
-  height: 96px;
-  width: 340px;
-  margin: 15px auto;
-}
-
-.is-compact .site-logo {
-  height: 50px;
-  width: 50px;
-  margin: 7px auto;
-}
-
-.site-navigation-row {
-  background-color: black;
-  text-transform: uppercase;
-  height: 45px;
-}
-.site-navigation-row .mdl-navigation {
-  text-align: center;
-  max-width: 900px;
-  width: 100%;
-}
-.site-navigation-row .mdl-navigation__link {
-  flex: 1;
-  line-height: 42px;
-  color: #fff;
-}
-.site-navigation-row .is-active {
-  position: relative;
-  font-family: "Heebo", sans-serif;
-  font-weight: bold;
-  opacity: 1;
-}
-.site-navigation-row .mdl-navigation__link:hover {
-  opacity: 1;
 }
 
 .mdl-layout__content {
