@@ -2,13 +2,23 @@
   color: white;
   padding: 1rem;
   margin-bottom: 15vh;
-  border-radius: 15px;
-  background-color: rgb(76, 175, 80);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-pic {
+  width: 3rem;
+  border-radius: 50%;
+  border: 3px solid rgb(76, 175, 80);
 }
 
 iframe {
-  width: 80%;
   height: 152px;
+  width: 100%;
   margin: 1rem auto;
   display: block;
 }

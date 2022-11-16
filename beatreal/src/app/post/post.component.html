@@ -1,6 +1,10 @@
 <div class="post">
-  <div class="header">
-    <div class="profile-pic"><img src="" alt="ProfilePic" /></div>
+  <div class="post-header">
+    <img
+      class="profile-pic"
+      src="../../assets/emptyProfPic.png"
+      alt="ProfilePic"
+    />
     <span class="username">Username</span>
   </div>
   <iframe
@@ -13,5 +17,9 @@
   ></iframe>
   <div class="footer">
     <button class="comments-button">View X Comments</button>
+    <ul class="comments-list" [ngStyle]="{ display: 'block' }">
+      <li>awesome!</li>
+      <li>cool!</li>
+    </ul>
   </div>
 </div>
