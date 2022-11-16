@@ -12,7 +12,7 @@ export class FeedComponent implements OnInit {
 
   route = 'feed';
 
-  posts = [1, 2, 3, 4];
+  posts = [1, 2];
 
   postReel = () => {
     alert('postReel was called');
