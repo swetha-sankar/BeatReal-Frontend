@@ -1,0 +1,6 @@
+<div class="comment-container">
+  <div *ngFor="let x of comments" class="comment-inner">
+    <div class="close" (click)="toggleComments()">[x]</div>
+    <p>{{ x.userId }}: {{ x.textContent }}</p>
+  </div>
+</div>
