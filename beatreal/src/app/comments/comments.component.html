@@ -1,0 +1,15 @@
+<div class="comment-container">
+  <div class="comment-inner">
+    <div class="close" (click)="toggleComments()">&times;</div>
+    <div *ngFor="let x of comments">
+      <br />
+      <img [src]="x.img" class="commentImg" />
+      <div class="comment-item">
+        <p class="username">{{ x.username }}</p>
+        <div class="comment">
+          {{ x.textContent }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

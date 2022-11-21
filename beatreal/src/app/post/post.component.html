@@ -12,6 +12,11 @@
     loading="lazy"
   ></iframe>
   <div class="footer">
-    <button class="comments-button">View X Comments</button>
+    <button class="comments-button" (click)="toggleComments()">
+      View X Comments
+    </button>
+    <div *ngIf="viewCommentsParent">
+      <app-comments (viewCommentsEvent)="toggleComments()"></app-comments>
+    </div>
   </div>
 </div>
