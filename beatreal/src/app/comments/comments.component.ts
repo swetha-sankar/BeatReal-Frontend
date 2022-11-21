@@ -9,13 +9,19 @@ export class CommentsComponent implements OnInit {
   @Output() viewCommentsEvent = new EventEmitter();
   constructor() {}
 
-  commentObj = { username: 'user5678355', textContent: 'Hello' };
+  commentObj = {
+    img: '../../assets/emptyProfPic.png',
+    username: 'user5678355',
+    textContent: 'Hello',
+  };
   commentObj2 = {
+    img: '../../assets/emptyProfPic.png',
     username: 'user123987',
     textContent:
       'adilsfjaljdshflakudshfluahdsfluhasdfkjadsfhlkjadshfluhasdflujahsdkljfnalsjdflajdfskajdshfkjhasdjkfhaskjdfhajksdfhkajdgshfkahgsdbfkjadgshfkjhaskdjghaksgfalsudjfhakdfhkadfshjh',
   };
   commentObj3 = {
+    img: '../../assets/emptyProfPic.png',
     username: 'user89273',
     textContent:
       'overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflowwwwww overflow',
