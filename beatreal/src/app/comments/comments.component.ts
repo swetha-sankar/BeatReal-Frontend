@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-comments',
@@ -8,6 +9,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class CommentsComponent implements OnInit {
   @Output() viewCommentsEvent = new EventEmitter();
   constructor() {}
+
+  commentForm = new FormGroup({
+    textContent: new FormControl(null, [Validators.required]),
+  });
+
+  newCommentObj = {
+    img: '../../assets/emptyProfPic.png',
+    username: 'user5678355',
+    textContent: 'Hello',
+  };
 
   commentObj = {
     img: '../../assets/emptyProfPic.png',
@@ -37,6 +48,19 @@ export class CommentsComponent implements OnInit {
 
   toggleComments() {
     this.viewCommentsEvent.emit();
+  }
+
+  writeComment() {
+    if (!this.commentForm.valid) {
+      alert('Please type a comment');
+    } else {
+      this.newCommentObj = {
+        img: '../../assets/emptyProfPic.png',
+        username: 'user89273',
+        textContent: this.commentForm.get('textContent')!.getRawValue(),
+      };
+      this.comments.push(this.newCommentObj);
+    }
   }
 
   ngOnInit(): void {}
