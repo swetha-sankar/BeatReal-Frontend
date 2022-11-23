@@ -2,7 +2,6 @@
   <div class="comment-inner">
     <div class="close" (click)="toggleComments()">&times;</div>
     <div *ngFor="let x of comments">
-      <br />
       <img [src]="x.img" class="commentImg" />
       <div class="comment-item">
         <p class="username">{{ x.username }}</p>
@@ -10,6 +9,20 @@
           {{ x.textContent }}
         </div>
       </div>
+      <br />
     </div>
   </div>
+  <form class="form-group" [formGroup]="commentForm">
+    <input
+      autocomplete="off"
+      placeholder="Add a comment..."
+      class="addCommentBox"
+      id="comment-input"
+      formControlName="textContent"
+      type="text"
+    />
+    <button class="post-button" type="Submit" (click)="writeComment()">
+      Post
+    </button>
+  </form>
 </div>
