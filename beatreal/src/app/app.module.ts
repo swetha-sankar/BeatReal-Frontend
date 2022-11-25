@@ -14,6 +14,7 @@ import { FeedComponent } from './feed/feed.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { CommentsComponent } from './comments/comments.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CommentsComponent } from './comments/comments.component';
     NavbarComponent,
     PostComponent,
     CommentsComponent,
+    ProfileEditComponent,
   ],
   imports: [
     BrowserModule,

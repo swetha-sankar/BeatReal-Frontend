@@ -77,3 +77,18 @@ img.article-image {
   font-size: 14px;
   font-weight: 500;
 }
+
+.fa-gear {
+  position: relative;
+  font-size: 30px;
+  margin: auto;
+  margin-right: 3%;
+  border: none;
+  background-color: #fff;
+}
+.fa-gear:hover,
+.fa-gear:focus {
+  color: gray;
+  text-decoration: none;
+  cursor: pointer;
+}
