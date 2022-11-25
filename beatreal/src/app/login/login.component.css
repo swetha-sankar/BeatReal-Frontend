@@ -1,27 +1,20 @@
-.container, .login-form, .header, .login-title {
+.login-form{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    background-color: black;
+    color: white;
     font-family: 'Heebo', sans-serif;
-}
-
-button.login, button.register {
-    width: 100%;
-    border-radius: 150px;
+    border: 1px solid;
+    padding: 6vh;
 }
 
 .header {
-    margin-bottom: 1em;
     font-size: 50px;
 }
 
-.login-form {
-    border: 1px solid;
-    padding: 6vh;
-    border-radius: 8px;
-}
-mat-form-field, .login-form {
-    width: 100%;
-    min-width: 300px;
+
+mat-form-field {
+    width: 80vw; 
 }

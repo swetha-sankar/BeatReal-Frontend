@@ -5,13 +5,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
+
 .toolbar {
   justify-content: space-between;
 }
+
 .bill-manager-table {
   width: 100%;
 }
+
 .bill-manager-table th {
   font-size: 16px;
 }

@@ -10,7 +10,7 @@ describe('LoginComponent', () => {
   let fixture: ComponentFixture<LoginComponent>;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [LoginComponent],
       imports: [
         MatButtonModule,
         MatFormFieldModule,
@@ -18,7 +18,7 @@ describe('LoginComponent', () => {
         BrowserAnimationsModule
       ],
     })
-    .compileComponents();
+      .compileComponents();
   });
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
@@ -35,6 +35,6 @@ describe('LoginComponent', () => {
   it('has a login button', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('button.login'))
-        .not.toEqual(null);
+      .not.toEqual(null);
   });
 });

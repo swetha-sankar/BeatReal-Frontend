@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   registerForm = new FormGroup({
-    email: new FormControl(null, [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     username: new FormControl(null, [Validators.required]),
     firstname: new FormControl(null, [Validators.required]),
     lastname: new FormControl(null, [Validators.required]),
@@ -24,8 +24,9 @@ export class RegisterComponent {
     private router: Router,
   ) { }
 
-  register(): void{
-    if (!this.registerForm.valid){
+
+  register(): void {
+    if (!this.registerForm.valid) {
       return;
     }
     // implement logic here

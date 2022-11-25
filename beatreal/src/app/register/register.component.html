@@ -1,26 +1,37 @@
-<h1 class="header">BeatReal</h1>
-<h2 class="register-title"> Create an Account</h2>
-
-<form [formGroup]= "registerForm" (ngSubmit)="register()">
-    <mat-form-field> 
-        <input type = "text" class="mdc-text-field__input" placeholder = "Email" name = "email" required>
-    </mat-form-field>
-    <mat-form-field> 
-        <input type = "text" class="mdc-text-field__input" placeholder = "First Name" name = "firstname" required>
-    </mat-form-field>
-    <mat-form-field> 
-        <input type = "text" class="mdc-text-field__input" placeholder = "Last Name" name = "lastname" required>
-    </mat-form-field>
-    <mat-form-field> 
-        <input type = "text" class="mdc-text-field__input" placeholder = "Username" name = "username" required>
-        <!-- todo: add check to see if username already exists -->
-    </mat-form-field>
-    <mat-form-field> 
-        <input type = "text" class="mdc-text-field__input" placeholder = "Password" name = "password" required>
-    </mat-form-field>
-    <mat-form-field> 
-        <input type = "text" class="mdc-text-field__input" placeholder = "Phone Number" name = "phoneNumber" required>
-    </mat-form-field>
-    <button mat-raised-button [disabled] ="!registerForm.valid"> Create Account</button>
-    <button mat-raised-button class="Login"> <a [routerLink] = "['../login']">Go to Login </a> </button>
-</form>
+<div class="register-form">
+    <h1 class="header">BeatReal</h1>
+    <h2 class="register-title"> Create an Account</h2>
+    <div style="text-align:center;">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+            <mat-form-field style="text-align:center;">
+                <label> Email </label>
+                <input type="text" class="mdc-text-field__input" placeholder="email@email.com" name="email" required>
+            </mat-form-field>
+            <mat-form-field style="text-align:center;">
+                <label> First Name </label>
+                <input type="text" class="mdc-text-field__input" placeholder="First Name" name="firstname" required>
+            </mat-form-field>
+            <mat-form-field style="text-align:center;">
+                <label> Last Name </label>
+                <input type="text" class="mdc-text-field__input" placeholder="Last Name" name="lastname" required>
+            </mat-form-field>
+            <mat-form-field style="text-align:center;">
+                <label> Username </label>
+                <input type="text" class="mdc-text-field__input" placeholder="Username" name="username" required>
+                <!-- todo: add check to see if username already exists -->
+            </mat-form-field>
+            <mat-form-field style="text-align:center;">
+                <label> Password </label>
+                <input type="text" class="mdc-text-field__input" placeholder="Password" name="password" required>
+            </mat-form-field>
+            <mat-form-field style="text-align:center;">
+                <label> Phone Number </label>
+                <input type="text" class="mdc-text-field__input" placeholder="8888888888" name="phoneNumber" required>
+            </mat-form-field>
+            <pre> </pre>
+            <button mat-raised-button [disabled]="!registerForm.valid"> Create Account</button>
+            <pre> </pre>
+            <button mat-raised-button> <a [routerLink]="['../login']">Go to Login </a> </button>
+        </form>
+    </div>
+</div>

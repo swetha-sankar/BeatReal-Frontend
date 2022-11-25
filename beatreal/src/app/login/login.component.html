@@ -1,15 +1,22 @@
-<h1 class="header">BeatReal</h1>
-<h2 class="login-title"> Login</h2>  
-<form [formGroup]="loginForm" (ngSubmit) = "login()">
-    <mat-form-field> 
-        <input type = "text" matInput placeholder = "Username" formControlName = "username">
-        <!-- todo: add check to see if username already exists -->
-        <mat-error *ngIf="this.loginForm.get('username')?.touched && this.loginForm.get('username')?.hasError('required')"> Username is required</mat-error>
-    </mat-form-field>
-    <mat-form-field> 
-        <input type = "text" matInput placeholder = "Password" formControlName = "password">
-        <mat-error *ngIf="this.loginForm.get('password')?.touched && this.loginForm.get('password')?.hasError('required')"> Password is required</mat-error>
-    </mat-form-field>
-    <button mat-raised-button class="login" color = "primary"> <a [routerLink] = "['../home']"> Login </a></button>
-    <button mat-raised-button class="register"> <a [routerLink] = "['../register']">Create an Account </a> </button>
-</form>
+<div class="login-form">
+    <h1 class="header">BeatReal</h1>
+    <h2 class="login-title"> Login</h2>
+    <div style="text-align:center;">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="formField">
+                <mat-form-field style="text-align:center;">
+                    <label> Username </label>
+                    <input type="text" class="mdc-text-field__input" placeholder="Username" name="username" required>
+                </mat-form-field>
+                <mat-form-field style="text-align:center;">
+                    <label> Password </label>
+                    <input type="text" class="mdc-text-field__input" placeholder="Password" name="password" required>
+                </mat-form-field>
+            </div>
+            <pre> </pre>
+            <button mat-raised-button> <a [routerLink]="['../home']"> Login </a></button>
+            <pre> </pre>
+            <button mat-raised-button> <a [routerLink]="['../register']">Create an Account </a> </button>
+        </form>
+    </div>
+</div>

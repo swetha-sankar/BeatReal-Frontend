@@ -10,7 +10,7 @@ describe('RegisterComponent', () => {
   let fixture: ComponentFixture<RegisterComponent>;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterComponent ],
+      declarations: [RegisterComponent],
       imports: [
         MatButtonModule,
         MatFormFieldModule,
@@ -18,7 +18,7 @@ describe('RegisterComponent', () => {
         BrowserAnimationsModule
       ],
     })
-    .compileComponents();
+      .compileComponents();
   });
   beforeEach(() => {
     fixture = TestBed.createComponent(RegisterComponent);
@@ -35,6 +35,6 @@ describe('RegisterComponent', () => {
   it('has a create account button', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('button.create'))
-        .not.toEqual(null);
+      .not.toEqual(null);
   });
 });
