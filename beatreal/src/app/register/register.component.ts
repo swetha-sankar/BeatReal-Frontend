@@ -24,13 +24,38 @@ export class RegisterComponent {
     private router: Router,
   ) { }
 
+  url = 'http://localhost:3000/api/login';
 
-  register(): void {
+  register() {
     if (!this.registerForm.valid) {
       return;
     }
-    // implement logic here
-
+    return fetch(this.url, {
+      method: 'post',
+      // set headers for post
+      headers: {
+        'Content-Type': 'application/json',
+      },
+  
+      // add body to post request
+      body: JSON.stringify({
+        email: this.registerForm.value.email,
+        username: this.registerForm.value.username,
+        firstname: this.registerForm.value.firstname,
+        lastname: this.registerForm.value.lastname,
+        password: this.registerForm.value.password,
+      }),
+    })
+    // Now we handle the response because the function returns a promise
+    .then((response) => {
+      // An important thing to note is that an error response will not throw
+      // an error so if the result is not okay we should throw the error
+      if(!response.ok) {
+        throw response;
+      }
+      // since we expect a json response we will return a json call
+      return response.json();
+    })
   }
 
-}
+  }

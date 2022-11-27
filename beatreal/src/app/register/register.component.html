@@ -32,7 +32,7 @@
                             name="phoneNumber" required>
                         <mat-error *ngIf="registerForm.value.phoneNumber">Invalid phone number</mat-error>
                     </mat-form-field>
-                    <button mat-raised-button [disabled]="!registerForm.valid"> Create Account</button>
+                    <button mat-raised-button [disabled]="!registerForm.valid" (click)="register()"> Create Account</button>
                 </mat-card>
             </div>
         </form>

@@ -13,17 +13,40 @@ export class LoginComponent {
     username: new FormControl(null, [Validators.required]),
     password: new FormControl(null, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')),
   });
-  valid = false;
   constructor(
     private router: Router,
   ) { }
-
+  url = 'http://localhost:3000/token';
 
   login() {
     if (!this.loginForm.valid) {
       return;
     }
-    // todo: add login logic
+    else {
+      this.router.navigateByUrl('/profile');
+      return fetch(this.url, {
+        method: 'post',
+        // set headers for post
+        headers: {
+          'Content-Type': 'application/json',
+        },
+
+        // add body to post request
+        body: JSON.stringify({
+          username: this.loginForm.value.username,
+          password: this.loginForm.value.password,
+        }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw response;
+          }
+
+        })
+    }
+
   }
 
+
 }
+
