@@ -1,4 +1,4 @@
-.login-form{
+.login-form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,11 +12,11 @@
 
 .header {
     font-size: 50px;
-    line-height:0.1em;
+    line-height: 0.1em;
 }
 
 
 mat-form-field {
-    width: 100%; 
+    width: 100%;
     font-family: 'Heebo', sans-serif;
 }

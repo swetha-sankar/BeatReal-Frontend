@@ -1,24 +1,26 @@
-.register-form{
+.register-form {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: black;
     color: white;
-    margin: 0; 
-    height: 100%; 
+    margin: 0;
+    height: 100%;
     overflow: hidden;
     font-family: 'Heebo', sans-serif;
 }
 
 .header {
     font-size: 50px;
-    line-height:0.1em;
+    line-height: 0.1em;
 }
-.register-title{
-    line-height:0.1em;
+
+.register-title {
+    line-height: 0.1em;
 }
-mat-card{
+
+mat-card {
     max-width: 450px;
     max-height: 400px;
 }

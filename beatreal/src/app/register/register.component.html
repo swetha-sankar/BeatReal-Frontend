@@ -7,8 +7,7 @@
             <div class="formField">
                 <mat-card class="mat-card-container">
                     <mat-form-field floatLabel="always" style="text-align:center;">
-                        <input matInput type="text" formControlName="email" placeholder="Email" name="email"
-                            required>
+                        <input matInput type="text" formControlName="email" placeholder="Email" name="email" required>
                         <mat-error *ngIf="registerForm.value.email">Please enter a valid email</mat-error>
                     </mat-form-field>
                     <mat-form-field floatLabel="always" style="text-align:center;">
@@ -16,8 +15,8 @@
                             name="firstname" required>
                     </mat-form-field>
                     <mat-form-field floatLabel="always" style="text-align:center;">
-                        <input matInput type="text" formControlName="lastname" placeholder="Last Name"
-                            name="lastname" required>
+                        <input matInput type="text" formControlName="lastname" placeholder="Last Name" name="lastname"
+                            required>
                     </mat-form-field>
                     <mat-form-field floatLabel="always" style="text-align:center;">
                         <input matInput type="text" formControlName="username" placeholder="Username" required>

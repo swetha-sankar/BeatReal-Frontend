@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent{
+export class LoginComponent {
 
   loginForm: FormGroup = new FormGroup({
     username: new FormControl(null, [Validators.required]),
@@ -20,7 +20,6 @@ export class LoginComponent{
 
 
   login() {
-    
     if (!this.loginForm.valid) {
       return;
     }
