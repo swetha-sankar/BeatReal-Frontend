@@ -15,5 +15,6 @@
 }
 
 mat-form-field {
-    width: 80vw; 
+    width: 70%;
+    font-family: 'Heebo', sans-serif;
 }

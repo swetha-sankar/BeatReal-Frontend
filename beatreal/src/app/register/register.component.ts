@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  phone_regex = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
   registerForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
     username: new FormControl(null, [Validators.required]),
-    firstname: new FormControl(null, [Validators.required]),
+    firstname: new FormControl(null, [Validators.required, Validators.min(2)]),
     lastname: new FormControl(null, [Validators.required]),
-    phoneNumber: new FormControl(null, [Validators.required]),
-    password: new FormControl(null, [Validators.required]),
-    passwordConfirm: new FormControl(null, [Validators.required]),
+    phoneNumber: new FormControl(null, [Validators.required, Validators.pattern(this.phone_regex)]),
+    password: new FormControl(null, [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')]),
     linkSpotify: new FormControl(null, [Validators.required]),
   }
   )

@@ -11,14 +11,16 @@ export class LoginComponent{
 
   loginForm: FormGroup = new FormGroup({
     username: new FormControl(null, [Validators.required]),
-    password: new FormControl('', Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')),
+    password: new FormControl(null, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')),
   });
+  valid = false;
   constructor(
     private router: Router,
   ) { }
 
 
   login() {
+    
     if (!this.loginForm.valid) {
       return;
     }

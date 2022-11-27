@@ -3,35 +3,40 @@
     <h2 class="register-title"> Create an Account</h2>
     <div style="text-align:center;">
         <form [formGroup]="registerForm" (ngSubmit)="register()">
-            <mat-form-field style="text-align:center;">
-                <label> Email </label>
-                <input type="text" class="mdc-text-field__input" placeholder="email@email.com" name="email" required>
-            </mat-form-field>
-            <mat-form-field style="text-align:center;">
-                <label> First Name </label>
-                <input type="text" class="mdc-text-field__input" placeholder="First Name" name="firstname" required>
-            </mat-form-field>
-            <mat-form-field style="text-align:center;">
-                <label> Last Name </label>
-                <input type="text" class="mdc-text-field__input" placeholder="Last Name" name="lastname" required>
-            </mat-form-field>
-            <mat-form-field style="text-align:center;">
-                <label> Username </label>
-                <input type="text" class="mdc-text-field__input" placeholder="Username" name="username" required>
-                <!-- todo: add check to see if username already exists -->
-            </mat-form-field>
-            <mat-form-field style="text-align:center;">
-                <label> Password </label>
-                <input type="text" class="mdc-text-field__input" placeholder="Password" name="password" required>
-            </mat-form-field>
-            <mat-form-field style="text-align:center;">
-                <label> Phone Number </label>
-                <input type="text" class="mdc-text-field__input" placeholder="8888888888" name="phoneNumber" required>
-            </mat-form-field>
-            <pre> </pre>
-            <button mat-raised-button [disabled]="!registerForm.valid"> Create Account</button>
-            <pre> </pre>
-            <button mat-raised-button> <a [routerLink]="['../login']">Go to Login </a> </button>
+            <div class="formField">
+                <mat-card>
+                    <mat-form-field floatLabel="always" style="text-align:center;">
+                        <input matInput type="text" class="mdc-text-field__input" placeholder="Email" name="email"
+                            required>
+                    </mat-form-field>
+                    <mat-form-field floatLabel="always" style="text-align:center;">
+                        <input matInput type="text" class="mdc-text-field__input" placeholder="First Name"
+                            name="firstname" required>
+                    </mat-form-field>
+                    <mat-form-field floatLabel="always" style="text-align:center;">
+                        <input matInput type="text" class="mdc-text-field__input" placeholder="Last Name"
+                            name="lastname" required>
+                    </mat-form-field>
+                    <mat-form-field floatLabel="always" style="text-align:center;">
+                        <input matInput type="text" formControlName="username" placeholder="Username" required>
+                        <mat-error *ngIf="registerForm.value.username">Username already exists</mat-error>
+                    </mat-form-field>
+                    <mat-form-field floatLabel="always" style="text-align:center;">
+                        <input matInput type="password" formControlName="password" placeholder="Password" required>
+                        <mat-error *ngIf="registerForm.value.password">Password must be a combination of lower-case,
+                            upper-case, numbers and at least 8 characters long</mat-error>
+                    </mat-form-field>
+                    <mat-form-field floatLabel="always" style="text-align:center;">
+                        <input matInput type="text" formControlName="phoneNumber" placeholder="Phone Number"
+                            name="phoneNumber" required>
+                        <mat-error *ngIf="registerForm.value.phoneNumber">Invalid phone number</mat-error>
+                    </mat-form-field>
+                </mat-card>
+            </div>
         </form>
+        <pre> </pre>
+        <button mat-raised-button [disabled]="!registerForm.valid"> Create Account</button>
+        <pre> </pre>
+        <button mat-raised-button> <a [routerLink]="['../login']">Go to Login </a> </button>
     </div>
 </div>
