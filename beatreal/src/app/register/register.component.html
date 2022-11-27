@@ -1,20 +1,22 @@
 <div class="register-form">
     <h1 class="header">BeatReal</h1>
+    <img src="./assets/headphone.png" alt="Headphone image" style="width:40px;height:40px;">
     <h2 class="register-title"> Create an Account</h2>
     <div style="text-align:center;">
         <form [formGroup]="registerForm" (ngSubmit)="register()">
             <div class="formField">
-                <mat-card>
+                <mat-card class="mat-card-container">
                     <mat-form-field floatLabel="always" style="text-align:center;">
-                        <input matInput type="text" class="mdc-text-field__input" placeholder="Email" name="email"
+                        <input matInput type="text" formControlName="email" placeholder="Email" name="email"
                             required>
+                        <mat-error *ngIf="registerForm.value.email">Please enter a valid email</mat-error>
                     </mat-form-field>
                     <mat-form-field floatLabel="always" style="text-align:center;">
-                        <input matInput type="text" class="mdc-text-field__input" placeholder="First Name"
+                        <input matInput type="text" formControlName="firstname" placeholder="First Name"
                             name="firstname" required>
                     </mat-form-field>
                     <mat-form-field floatLabel="always" style="text-align:center;">
-                        <input matInput type="text" class="mdc-text-field__input" placeholder="Last Name"
+                        <input matInput type="text" formControlName="lastname" placeholder="Last Name"
                             name="lastname" required>
                     </mat-form-field>
                     <mat-form-field floatLabel="always" style="text-align:center;">
@@ -31,12 +33,9 @@
                             name="phoneNumber" required>
                         <mat-error *ngIf="registerForm.value.phoneNumber">Invalid phone number</mat-error>
                     </mat-form-field>
+                    <button mat-raised-button [disabled]="!registerForm.valid"> Create Account</button>
                 </mat-card>
             </div>
         </form>
-        <pre> </pre>
-        <button mat-raised-button [disabled]="!registerForm.valid"> Create Account</button>
-        <pre> </pre>
-        <button mat-raised-button> <a [routerLink]="['../login']">Go to Login </a> </button>
     </div>
 </div>

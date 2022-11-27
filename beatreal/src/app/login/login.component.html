@@ -1,6 +1,6 @@
 <div class="login-form">
     <h1 class="header">BeatReal</h1>
-    <img src="./assets/headphone.png" alt="Headphone image" style="width:50px;height:50px;">
+    <img src="./assets/headphone.png" alt="Headphone image" style="width:40px;height:40px;">
     <h2 class="login-title"> Login</h2>
     <div style="text-align:center;">
         <form [formGroup]="loginForm" (ngSubmit)="login()">
@@ -13,12 +13,11 @@
                     <input matInput type="password" class="mdc-text-field__input" formControlName="password" placeholder="Password" required>
                     <mat-error *ngIf="loginForm.value.password">Password must be a combination of lower-case, upper-case, numbers and at least 8 characters long</mat-error>
                 </mat-form-field>
+                <button mat-raised-button  [disabled]="!loginForm.valid" (click)="login()"> Login </button>
                 </mat-card>
             </div>
             <pre> </pre>
-            <button class="login-button" mat-raised-button (click)="login()"> Login </button>
-            <pre> </pre>
-            <button mat-raised-button> <a [routerLink]="['../register']">Create an Account </a> </button>
+            <button mat-raised-button> <a [routerLink]="['../register']"> New to BeatReal? Create an Account! </a> </button>
         </form>
     </div>
 </div>
