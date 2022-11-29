@@ -37,7 +37,7 @@ export class LoginComponent {
         }),
       })
         .then((response) => {
-          if (!response.ok) {7
+          if (!response.ok) {
             throw response;
           }
           this.router.navigateByUrl('/profile');
