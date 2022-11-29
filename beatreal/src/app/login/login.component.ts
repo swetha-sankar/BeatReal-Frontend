@@ -16,14 +16,13 @@ export class LoginComponent {
   constructor(
     private router: Router,
   ) { }
-  url = 'http://localhost:3000/token';
+  url = 'http://localhost:3000/security/token';
 
   login() {
     if (!this.loginForm.valid) {
       return;
     }
     else {
-      this.router.navigateByUrl('/profile');
       return fetch(this.url, {
         method: 'post',
         // set headers for post
@@ -38,9 +37,10 @@ export class LoginComponent {
         }),
       })
         .then((response) => {
-          if (!response.ok) {
+          if (!response.ok) {7
             throw response;
           }
+          this.router.navigateByUrl('/profile');
 
         })
     }

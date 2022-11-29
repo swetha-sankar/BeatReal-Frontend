@@ -16,7 +16,6 @@ export class RegisterComponent {
     lastname: new FormControl(null, [Validators.required]),
     phoneNumber: new FormControl(null, [Validators.required, Validators.pattern(this.phone_regex)]),
     password: new FormControl(null, [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')]),
-    linkSpotify: new FormControl(null, [Validators.required]),
   }
   )
 
