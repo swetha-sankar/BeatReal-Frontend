@@ -23,7 +23,7 @@ export class RegisterComponent {
     private router: Router,
   ) { }
 
-  url = 'http://localhost:3000/api/login';
+  url = 'http://localhost:3000/security/register';
 
   register() {
     if (!this.registerForm.valid) {
@@ -40,20 +40,20 @@ export class RegisterComponent {
       body: JSON.stringify({
         email: this.registerForm.value.email,
         username: this.registerForm.value.username,
-        firstname: this.registerForm.value.firstname,
-        lastname: this.registerForm.value.lastname,
         password: this.registerForm.value.password,
+        firstName: this.registerForm.value.firstname,
+        lastName: this.registerForm.value.lastname,
+        phoneNumber: this.registerForm.value.phoneNumber,
       }),
     })
-    // Now we handle the response because the function returns a promise
     .then((response) => {
-      // An important thing to note is that an error response will not throw
-      // an error so if the result is not okay we should throw the error
-      if(!response.ok) {
-        throw response;
+      if(response.ok) {
+        this.router.navigateByUrl('/profile');
       }
-      // since we expect a json response we will return a json call
-      return response.json();
+      else{
+        alert(`data equals: ${response}`)
+        throw(response)
+      }
     })
   }
 
