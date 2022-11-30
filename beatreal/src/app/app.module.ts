@@ -16,6 +16,8 @@ import { PostComponent } from './post/post.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     PostComponent,
     CommentsComponent,
     ProfileEditComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

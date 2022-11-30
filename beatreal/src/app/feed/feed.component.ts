@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-feed',
@@ -6,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feed.component.css'],
 })
 export class FeedComponent implements OnInit {
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
+
+  openDialog() {
+    console.log("dialog open");
+    this.dialog.open(DialogComponent);
+  }
 
   ngOnInit(): void {}
 
