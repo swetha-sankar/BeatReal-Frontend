@@ -1,0 +1,38 @@
+.outer-frame {
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+}
+.article-image {
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  border-radius: 100ch;
+}
+.mdl-card__media {
+  position: relative;
+  width: 15%;
+  height: 15%;
+  margin: auto;
+  border-radius: 100ch;
+}
+
+.inner-frame {
+  margin: auto;
+}
+
+form {
+}
+
+input {
+  display: block;
+  position: relative;
+  margin: auto;
+  margin-top: 7ch;
+  height: 5ch;
+}
+
+.firstName {
+  color: white;
+  float: left;
+}
