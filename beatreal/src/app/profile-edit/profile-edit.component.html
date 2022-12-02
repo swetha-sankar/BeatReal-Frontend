@@ -1,5 +1,5 @@
 <div class="outer-frame">
-  <div>
+  <div class="inner-box-left">
     <form>
       <div class="mdl-card__media">
         <img
@@ -8,13 +8,48 @@
           alt="profile pic"
         />
       </div>
-      <div class="inner-frame">
-        <div>
-          <p class="firstName">First Name</p>
+      <div class="file-upload-container">
+        <label for="file-upload" class="custom-file-upload"
+          ><i class="fa fa-cloud-upload"></i> Edit Profile Pic</label
+        >
+        <input
+          id="file-upload"
+          type="file"
+          placeholder="Edit Profile Pic"
+          accept=".jpg, .png, .jpeg"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="inner-box-right">
+    <div style="text-align: center">
+      <h2>Edit Profile</h2>
+      <hr />
+    </div>
+    <form>
+      <div class="input-container">
+        <div class="label-row">
+          <div class="label">Username:</div>
+          <input placeholder="Username" />
+        </div>
+        <div class="label-row">
+          <div class="label">First Name:</div>
           <input placeholder="First Name" />
         </div>
-        <input placeholder="Last Name" />
-        <input placeholder="Bio" />
+        <div class="label-row">
+          <div class="label">Last Name:</div>
+          <input placeholder="Last Name" />
+        </div>
+        <div class="label-row">
+          <div class="label">Bio:</div>
+          <textarea
+            placeholder="Bio"
+            rows="3"
+            cols="25"
+            maxlength="150"
+          ></textarea>
+          <button class="submit-button" type="submit">Save</button>
+        </div>
       </div>
     </form>
   </div>

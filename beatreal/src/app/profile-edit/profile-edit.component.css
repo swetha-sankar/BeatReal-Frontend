@@ -1,38 +1,130 @@
 .outer-frame {
+  display: flex;
+  flex-direction: row;
   background-color: black;
   width: 100%;
   height: 100vh;
+  position: fixed;
+  overflow: auto;
+  justify-content: center;
 }
+
+.inner-box-left {
+  background-color: rgb(99, 207, 99);
+  height: 80%;
+  min-height: 60ch;
+  width: 15%;
+  margin-top: 5%;
+  border-radius: 2ch;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.inner-box-right {
+  width: 40%;
+  min-height: 60ch;
+  height: 80%;
+  background-color: gray;
+  margin-top: 5%;
+  padding-top: 2%;
+  border-radius: 2ch;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 .article-image {
   margin: auto;
-  width: 50%;
-  height: 50%;
+  margin-top: 9ch;
+  width: 15ch;
+  height: 15ch;
   border-radius: 100ch;
+  background-color: black;
 }
 .mdl-card__media {
   position: relative;
-  width: 15%;
-  height: 15%;
+  width: 100%;
+  height: 100%;
   margin: auto;
   border-radius: 100ch;
 }
 
-.inner-frame {
-  margin: auto;
-}
-
-form {
+.input-container {
+  position: relative;
 }
 
 input {
-  display: block;
   position: relative;
-  margin: auto;
-  margin-top: 7ch;
-  height: 5ch;
+  display: flex;
+  flex-basis: 40%;
 }
 
-.firstName {
+.label {
+  margin-top: 1%;
+  font-size: 110%;
+  font-weight: bold;
+  min-width: 30%;
+  text-align: center;
+}
+
+.label-row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 7%; /* gap between rows */
+}
+
+textarea {
+  resize: none;
+  min-width: 0;
+  flex-basis: 40%;
+}
+
+input:focus,
+textarea:focus {
+  border: 1mm;
+  border-color: black;
+  border-style: solid;
+}
+
+.submit-button {
+  display: block;
+  position: relative;
+  top: 18ch;
+  left: 8ch;
+  background-color: rgb(4, 145, 245);
   color: white;
-  float: left;
+  border-radius: 1ch;
+  border: none;
+  width: 12%;
+  height: 33px;
+}
+
+.submit-button:hover {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  background-color: rgb(4, 145, 245);
+  color: white;
+  border-radius: 1ch;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.file-upload-container {
+  text-align: center;
+  margin-top: 2ch;
+}
+
+h2 {
+  display: block;
+  margin: auto;
+  margin-top: -1.5ch;
 }
