@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { BlobsComponent } from './blobs/blobs.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     PostComponent,
     CommentsComponent,
     ProfileEditComponent,
+    BlobsComponent,
   ],
   imports: [
     BrowserModule,
