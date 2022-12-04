@@ -1,1 +1,87 @@
-<p>profile-edit works!</p>
+<div class="container">
+  <div class="lamp">
+    <div class="lava">
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob top"></div>
+    </div>
+  </div>
+  <div class="outer-frame">
+    <div class="inner-box-left">
+      <form>
+        <div class="mdl-card__media">
+          <img
+            class="article-image"
+            src="../../assets/emptyProfPic.png"
+            alt="profile pic"
+          />
+        </div>
+        <div class="file-upload-container">
+          <label for="file-upload" class="custom-file-upload"
+            ><i class="fa fa-cloud-upload"></i> Edit Profile Pic</label
+          >
+          <input
+            id="file-upload"
+            type="file"
+            placeholder="Edit Profile Pic"
+            accept=".jpg, .png, .jpeg"
+          />
+        </div>
+      </form>
+      <div style="text-align: center">
+        <a routerLink="/profile">
+          <button class="profile-button">
+            <i class="fa fa-user"></i> PROFILE
+          </button>
+        </a>
+      </div>
+      <div style="text-align: center">
+        <a routerLink="/feed">
+          <button class="feed-button"><i class="fa fa-users"></i> FEED</button>
+        </a>
+      </div>
+    </div>
+    <div class="inner-box-right">
+      <div style="text-align: center">
+        <h2>Edit Profile</h2>
+        <hr />
+      </div>
+      <form>
+        <div class="input-container">
+          <div class="label-row">
+            <div class="label">Username:</div>
+            <input placeholder="Username" />
+          </div>
+          <div class="label-row">
+            <div class="label">First Name:</div>
+            <input placeholder="First Name" />
+          </div>
+          <div class="label-row">
+            <div class="label">Last Name:</div>
+            <input placeholder="Last Name" />
+          </div>
+          <div class="label-row">
+            <div class="label">Phone Number:</div>
+            <input placeholder="Phone Number:" />
+          </div>
+          <div class="label-row">
+            <div class="label">Bio:</div>
+            <textarea
+              placeholder="Bio"
+              rows="3"
+              cols="25"
+              maxlength="150"
+            ></textarea>
+            <button class="submit-button" type="submit">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
