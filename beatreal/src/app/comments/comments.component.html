@@ -2,9 +2,9 @@
   <div class="comment-inner">
     <div class="close" (click)="toggleComments()">&times;</div>
     <div *ngFor="let x of comments">
-      <img [src]="x.img" class="commentImg" />
+      <img [src]="defaultImg" class="commentImg" />
       <div class="comment-item">
-        <p class="username">{{ x.username }}</p>
+        <p class="username">User{{ x.commenterId }}</p>
         <div class="comment">
           {{ x.textContent }}
         </div>
