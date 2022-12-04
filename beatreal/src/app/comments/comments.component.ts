@@ -24,7 +24,20 @@ export class CommentsComponent implements OnInit {
     this.viewCommentsEvent.emit();
   }
 
-  writeComment() {}
+  writeComment() {
+    if (!this.commentForm.valid) {
+      alert('Please type a comment');
+    } else {
+      this.WebReqService.patch('commentReel', {
+        commenterId: '638bfc00855ff9480c112b71', //all Id's are from the database but are fixed for now
+        postId: '638bae096bc622b0b538193a',
+        textContent: this.commentForm.get('textContent')!.getRawValue(), //this is the only thing not fixed on a dummy value
+        posterId: '638badeec1f073c30c2aa54b',
+      }).subscribe(() => {
+        this.getComments();
+      });
+    }
+  }
 
   getComments() {
     this.WebReqService.get('users/638badeec1f073c30c2aa54b/reels').subscribe(
