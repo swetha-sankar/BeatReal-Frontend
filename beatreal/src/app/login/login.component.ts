@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -28,6 +28,7 @@ export class LoginComponent {
     else {
       this.http.post(this.url,{username:this.loginForm.value.username,password: this.loginForm.value.password}).subscribe(result=>{
         console.log(result);
+        this.router.navigateByUrl('/profile');
       });
       return;
       return fetch(this.url, {

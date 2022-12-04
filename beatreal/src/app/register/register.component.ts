@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -21,40 +22,29 @@ export class RegisterComponent {
 
   constructor(
     private router: Router,
+    private http:HttpClient
   ) { }
 
   url = 'http://localhost:3000/security/register';
+  id = '';
 
   register() {
     if (!this.registerForm.valid) {
       return;
     }
-    return fetch(this.url, {
-      method: 'post',
-      // set headers for post
-      headers: {
-        'Content-Type': 'application/json',
-      },
-  
-      // add body to post request
-      body: JSON.stringify({
-        email: this.registerForm.value.email,
-        username: this.registerForm.value.username,
-        password: this.registerForm.value.password,
-        firstName: this.registerForm.value.firstname,
-        lastName: this.registerForm.value.lastname,
-        phoneNumber: this.registerForm.value.phoneNumber,
-      }),
-    })
-    .then((response) => {
-      if(response.ok) {
-        this.router.navigateByUrl('/profile');
-      }
-      else{
-        alert(`data equals: ${response}`)
-        throw(response)
-      }
-    })
+    else{
+    this.http.post(this.url,{email: this.registerForm.value.email,
+      username: this.registerForm.value.username,
+      password: this.registerForm.value.password,
+      firstName: this.registerForm.value.firstname,
+      lastName: this.registerForm.value.lastname,
+      phoneNumber: this.registerForm.value.phoneNumber}).subscribe(result=>{
+      console.log(result);
+        
+      //this.router.navigateByUrl('/profile');
+    });
+    } 
+    return;
   }
 
   }
