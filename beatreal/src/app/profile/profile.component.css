@@ -78,11 +78,14 @@ img.article-image {
   font-weight: 500;
 }
 
+.outer-fa {
+  margin: auto;
+  margin-right: 0%;
+}
+
 .fa-gear {
   position: relative;
   font-size: 30px;
-  margin: auto;
-  margin-right: 3%;
   border: none;
   background-color: #fff;
 }

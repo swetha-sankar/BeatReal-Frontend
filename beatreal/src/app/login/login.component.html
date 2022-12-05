@@ -1,22 +1,26 @@
 <div class="login-form">
     <h1 class="header">BeatReal</h1>
+    <img src="./assets/headphone.png" alt="Headphone image" style="width:40px;height:40px;">
     <h2 class="login-title"> Login</h2>
     <div style="text-align:center;">
         <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="formField">
-                <mat-form-field style="text-align:center;">
-                    <label> Username </label>
-                    <input type="text" class="mdc-text-field__input" placeholder="Username" name="username" required>
-                </mat-form-field>
-                <mat-form-field style="text-align:center;">
-                    <label> Password </label>
-                    <input type="text" class="mdc-text-field__input" placeholder="Password" name="password" required>
-                </mat-form-field>
+                <mat-card>
+                    <mat-form-field floatLabel="always" style="text-align:center;">
+                        <input matInput type="text" formControlName="username" placeholder="Username" required>
+                    </mat-form-field>
+                    <mat-form-field floatLabel="always" style="text-align:center;">
+                        <input matInput type="password" class="mdc-text-field__input" formControlName="password"
+                            placeholder="Password" required>
+                    </mat-form-field>
+                    <pre></pre>
+                    <pre></pre>
+                    <button mat-raised-button [disabled]="!loginForm.valid" (click)="login()"> Login </button>
+                </mat-card>
             </div>
             <pre> </pre>
-            <button mat-raised-button> <a [routerLink]="['../home']"> Login </a></button>
-            <pre> </pre>
-            <button mat-raised-button> <a [routerLink]="['../register']">Create an Account </a> </button>
+            <button mat-raised-button> <a [routerLink]="['../register']"> New to BeatReal? Create an Account! </a>
+            </button>
         </form>
     </div>
 </div>
