@@ -34,8 +34,8 @@ export class BlobsComponent implements OnInit {
     this.lavaHeight += event.deltaY * 0.2;
     if (this.lavaHeight < 0) {
       this.lavaHeight = 0;
-    } else if (this.lavaHeight > this.myLava.offsetHeight * 0.6) {
-      this.lavaHeight = this.myLava.offsetHeight * 0.6;
+    } else if (this.lavaHeight > this.myLava.offsetHeight * 0.635) {
+      this.lavaHeight = this.myLava.offsetHeight * 0.635;
     }
 
     const px = '-' + this.lavaHeight + 'px';
