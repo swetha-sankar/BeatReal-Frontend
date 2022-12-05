@@ -24,15 +24,15 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {}
 
   songUrl='https://api.spotify.com/v1/me/player/currently-playing';
-  headers= new HttpHeaders().set('content-type', 'application/json').set('Authorization', ' ');
+  headers= new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', ' ');
   //https://v2.angular.io/docs/ts/latest/guide/server-communication.html#:~:text=The%20Angular%20Http%20client%20communicates%20with%20the%20server,family%20of%20services%20in%20the%20Angular%20HTTP%20library.
   getSong() {
     var element=document.getElementById("spotifyTest");
     if (element!=null) {
       //silly button to get the response from spotify to print out, for some reason console.log was giving me problems 
-      element.innerHTML=JSON.stringify(this.httpClient.request('GET', this.songUrl, {'headers': this.headers}));
+      element.innerHTML=JSON.stringify(this.httpClient.get(this.songUrl, {headers: this.headers}));
     }
-    return this.httpClient.request('GET', this.songUrl + '?' + 'name=term', {responseType:'json'});
+    //return this.httpClient.request('GET', this.songUrl + '?' + 'name=term', {'headers': this.headers, responseType:'json'});
     //return this.httpClient.get(this.songUrl).map(this.extractData).catch(this.handleError);
   }
 

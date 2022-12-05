@@ -101,22 +101,6 @@ export class RegisterComponent {
       }
     });
     */
-
-    /*"https://accounts.spotify.com/authorize?" + JSON.stringify({
-          response_type: "code",
-          client_id: '3ecc3a4b5b974d02a9b9e12b7f2ace9b' //process.env.spotifyClientID
-            ? '3ecc3a4b5b974d02a9b9e12b7f2ace9b' //process.env.spotifyClientID
-            : "",
-          scope: scope,
-          redirect_uri: 'http://localhost:4200/profile' //process.env.spotifyRedirectURI
-            ? 'http://localhost:4200/profile' //process.env.spotifyRedirectURI
-            : "",
-          state: state,
-          show_dialog: true, //false(by default). Whether or not to force the user to approve the app again if they’ve already done so
-        });
-  
-    */
-  
    
   }
   }
