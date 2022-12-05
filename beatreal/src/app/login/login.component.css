@@ -1,20 +1,22 @@
-.login-form{
+.login-form {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: black;
+    min-height: 100%;
+    max-height: 100%;
     color: white;
     font-family: 'Heebo', sans-serif;
-    border: 1px solid;
-    padding: 6vh;
 }
 
 .header {
     font-size: 50px;
+    line-height: 0.1em;
 }
 
 
 mat-form-field {
-    width: 80vw; 
+    width: 100%;
+    font-family: 'Heebo', sans-serif;
 }
