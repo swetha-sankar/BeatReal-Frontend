@@ -1,0 +1,268 @@
+.test {
+  height: 700vh;
+  width: 30px;
+  position: absolute;
+  background-color: white;
+}
+
+.goo-container {
+  filter: url("#goo");
+}
+
+.lamp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 300vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  z-index: -1;
+  /* -ms-overflow-style: none;
+  scrollbar-width: none; */
+}
+
+/* .lamp::-webkit-scrollbar {
+  display: none;
+} */
+
+.lava {
+  transition: top 2s ease 0s;
+  filter: url("#goo");
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: -30%;
+  left: 0;
+}
+
+.blob.top {
+  border-radius: 50%;
+  width: 100%;
+  height: 4%;
+  top: -3%;
+  left: 0;
+}
+.blob.bottom {
+  border-radius: 50%;
+  width: 100%;
+  height: 4%;
+  bottom: 0%;
+  left: 0;
+}
+
+.blob {
+  border-radius: 50%;
+  background: rgb(103, 230, 103);
+  /* Other sample colors:
+    Orange: #e8630a
+    Pink: #EA3281
+    Fuscia: #E71669
+    Purple: #661BAC
+    Yellow: #FDC600
+    Kermit green: #75AC25
+    Light blue: #3283B5
+    Dark blue: #0A5D9A
+    Gunmetal: #232F37
+    BGLight: #1B2735
+    BGDark: #090a0f
+    Want more colors? check out https://coolors.co/ for inspiration.
+    */
+  position: absolute;
+}
+
+.blob:nth-child(1) {
+  width: 26vw;
+  height: 26vw;
+  left: 10%;
+  bottom: 0%;
+
+  animation: wobble 4s ease-in-out alternate infinite,
+    blob-one ease-in-out 16s infinite;
+}
+
+.blob:nth-child(2) {
+  width: 21vw;
+  height: 21vw;
+  right: 24%;
+  bottom: 0%;
+
+  animation: wobble 5s ease-in-out alternate infinite,
+    blob-two ease-in-out 22s infinite;
+}
+.blob:nth-child(3) {
+  width: 19vw;
+  height: 19vw;
+  bottom: 20%;
+  left: 34%;
+
+  animation: wobble 6s ease-in-out alternate infinite,
+    blob-three ease-in-out 16s infinite;
+}
+.blob:nth-child(4) {
+  width: 15vw;
+  height: 15vw;
+  top: 10%;
+  left: 30%;
+
+  animation: wobble 7s ease-in-out alternate infinite,
+    blob-four ease-in-out 14s infinite;
+}
+.blob:nth-child(4) {
+  width: 30vw;
+  height: 30vw;
+  bottom: -19%;
+  left: 40%;
+  animation: wobble 8s ease-in-out alternate infinite,
+    blob-four ease-in-out 17s infinite;
+}
+.blob:nth-child(5) {
+  width: 13vw;
+  height: 13vw;
+  top: 0%;
+  left: 34%;
+
+  animation: wobble 9s ease-in-out alternate infinite,
+    blob-five ease-in-out 32s infinite;
+}
+.blob:nth-child(6) {
+  width: 30vw;
+  height: 30vw;
+  top: 20%;
+  right: 10%;
+
+  animation: wobble 10s ease-in-out alternate infinite,
+    blob-six ease-in-out 15s infinite;
+}
+.blob:nth-child(7) {
+  width: 28vw;
+  height: 28vw;
+  bottom: 50%;
+  left: 15%;
+
+  animation: wobble 11s ease-in-out alternate infinite,
+    blob-seven ease-in-out 32s infinite;
+}
+
+.blob:nth-child(8) {
+  width: 22vw;
+  height: 22vw;
+  top: 10%;
+  right: -5%;
+
+  animation: wobble 11s ease-in-out alternate infinite,
+    blob-eight ease-in-out 30s infinite;
+}
+
+.blob:nth-child(9) {
+  width: 14vw;
+  height: 14vw;
+  top: 10%;
+  left: -5%;
+
+  animation: wobble 11s ease-in-out alternate infinite,
+    blob-nine ease-in-out 38s infinite;
+}
+
+@keyframes blob-one {
+  0%,
+  100% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(-280vh);
+  }
+}
+
+@keyframes blob-two {
+  0%,
+  100% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(-250vh);
+  }
+}
+
+@keyframes blob-three {
+  0%,
+  100% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(-220vh);
+  }
+}
+@keyframes blob-four {
+  0%,
+  100% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(200vh);
+  }
+}
+@keyframes blob-five {
+  0%,
+  100% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(260vh);
+  }
+}
+@keyframes blob-six {
+  0%,
+  100% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(180vh);
+  }
+}
+@keyframes blob-seven {
+  0%,
+  100% {
+    transform: translatey(0);
+  }
+  25% {
+    transform: translatey(100vh);
+  }
+  75% {
+    transform: translatey(-130vh);
+  }
+}
+
+@keyframes blob-eight {
+  0%,
+  100% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(175vh);
+  }
+}
+
+@keyframes blob-nine {
+  0%,
+  100% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(200vh);
+  }
+}
+
+@keyframes wobble {
+  50% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+  100% {
+    border-radius: 38% 52% 75% 36% / 50% 40% 50% 60%;
+  }
+}
+
+svg {
+  display: none;
+}

@@ -1,40 +1,96 @@
+<app-blobs></app-blobs>
 <div class="register-form">
-    <h1 class="header">BeatReal</h1>
-    <img src="./assets/headphone.png" alt="Headphone image" style="width:40px;height:40px;">
-    <h2 class="register-title"> Create an Account</h2>
-    <div style="text-align:center;">
-        <form [formGroup]="registerForm" (ngSubmit)="register()">
-            <div class="formField">
-                <mat-card class="mat-card-container">
-                    <mat-form-field floatLabel="always" style="text-align:center;">
-                        <input matInput type="text" formControlName="email" placeholder="Email" name="email" required>
-                        <mat-error *ngIf="registerForm.value.email">Please enter a valid email</mat-error>
-                    </mat-form-field>
-                    <mat-form-field floatLabel="always" style="text-align:center;">
-                        <input matInput type="text" formControlName="firstname" placeholder="First Name"
-                            name="firstname" required>
-                    </mat-form-field>
-                    <mat-form-field floatLabel="always" style="text-align:center;">
-                        <input matInput type="text" formControlName="lastname" placeholder="Last Name" name="lastname"
-                            required>
-                    </mat-form-field>
-                    <mat-form-field floatLabel="always" style="text-align:center;">
-                        <input matInput type="text" formControlName="username" placeholder="Username" required>
-                        <mat-error *ngIf="registerForm.value.username">Username already exists</mat-error>
-                    </mat-form-field>
-                    <mat-form-field floatLabel="always" style="text-align:center;">
-                        <input matInput type="password" formControlName="password" placeholder="Password" required>
-                        <mat-error *ngIf="registerForm.value.password">Password must be a combination of lower-case,
-                            upper-case, numbers and at least 8 characters long</mat-error>
-                    </mat-form-field>
-                    <mat-form-field floatLabel="always" style="text-align:center;">
-                        <input matInput type="text" formControlName="phoneNumber" placeholder="Phone Number"
-                            name="phoneNumber" required>
-                        <mat-error *ngIf="registerForm.value.phoneNumber">Invalid phone number</mat-error>
-                    </mat-form-field>
-                    <button mat-raised-button [disabled]="!registerForm.valid" (click)="register()"> Create Account</button>
-                </mat-card>
-            </div>
-        </form>
-    </div>
+  <h1 class="header">BeatReal</h1>
+  <img
+    src="./assets/headphone.png"
+    alt="Headphone image"
+    style="width: 40px; height: 40px"
+  />
+  <h2 class="register-title">Create an Account</h2>
+  <div style="text-align: center">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="formField">
+        <mat-card class="mat-card-container">
+          <mat-form-field floatLabel="always" style="text-align: center">
+            <input
+              matInput
+              type="text"
+              formControlName="email"
+              placeholder="Email"
+              name="email"
+              required
+            />
+            <mat-error *ngIf="registerForm.value.email"
+              >Please enter a valid email</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field floatLabel="always" style="text-align: center">
+            <input
+              matInput
+              type="text"
+              formControlName="firstname"
+              placeholder="First Name"
+              name="firstname"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field floatLabel="always" style="text-align: center">
+            <input
+              matInput
+              type="text"
+              formControlName="lastname"
+              placeholder="Last Name"
+              name="lastname"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field floatLabel="always" style="text-align: center">
+            <input
+              matInput
+              type="text"
+              formControlName="username"
+              placeholder="Username"
+              required
+            />
+            <mat-error *ngIf="registerForm.value.username"
+              >Username already exists</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field floatLabel="always" style="text-align: center">
+            <input
+              matInput
+              type="password"
+              formControlName="password"
+              placeholder="Password"
+              required
+            />
+            <mat-error *ngIf="registerForm.value.password"
+              >Password must be a combination of lower-case, upper-case, numbers
+              and at least 8 characters long</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field floatLabel="always" style="text-align: center">
+            <input
+              matInput
+              type="text"
+              formControlName="phoneNumber"
+              placeholder="Phone Number"
+              name="phoneNumber"
+              required
+            />
+            <mat-error *ngIf="registerForm.value.phoneNumber"
+              >Invalid phone number</mat-error
+            >
+          </mat-form-field>
+          <button
+            mat-raised-button
+            [disabled]="!registerForm.valid"
+            (click)="register()"
+          >
+            Create Account
+          </button>
+        </mat-card>
+      </div>
+    </form>
+  </div>
 </div>
