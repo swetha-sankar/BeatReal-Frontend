@@ -14,7 +14,7 @@
   </div>
   <div class="outer-frame">
     <div class="inner-box-left">
-      <form>
+      <form [formGroup]="profilePicForm">
         <div class="mdl-card__media">
           <img
             class="article-image"
@@ -52,23 +52,23 @@
         <h2>Edit Profile</h2>
         <hr />
       </div>
-      <form>
+      <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
         <div class="input-container">
           <div class="label-row">
             <div class="label">Username:</div>
-            <input placeholder="Username" />
+            <input placeholder="Username" formControlName="username" />
           </div>
           <div class="label-row">
             <div class="label">First Name:</div>
-            <input placeholder="First Name" />
+            <input placeholder="First Name" formControlName="firstName" />
           </div>
           <div class="label-row">
             <div class="label">Last Name:</div>
-            <input placeholder="Last Name" />
+            <input placeholder="Last Name" formControlName="lastName" />
           </div>
           <div class="label-row">
             <div class="label">Phone Number:</div>
-            <input placeholder="Phone Number:" />
+            <input placeholder="Phone Number:" formControlName="phoneNumber" />
           </div>
           <div class="label-row">
             <div class="label">Bio:</div>
@@ -77,6 +77,7 @@
               rows="3"
               cols="25"
               maxlength="150"
+              formControlName="bio"
             ></textarea>
             <button class="submit-button" type="submit">Save</button>
           </div>

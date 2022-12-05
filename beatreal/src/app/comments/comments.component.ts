@@ -23,7 +23,6 @@ export class CommentsComponent implements OnInit {
   toggleComments() {
     this.viewCommentsEvent.emit();
   }
-
   writeComment() {
     if (!this.commentForm.valid) {
       alert('Please type a comment');
