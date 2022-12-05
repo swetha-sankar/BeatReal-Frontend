@@ -60,7 +60,7 @@ export class RegisterComponent {
     .then((response) => {
       if(response.ok) {
         this.spotifyRedirect();
-        this.router.navigateByUrl('/profile');
+//        this.router.navigateByUrl('/profile');
       }
       else{
         alert(`data equals: ${response}`)
@@ -68,6 +68,7 @@ export class RegisterComponent {
       }
     })
   }
+
   spotifyRedirect() {
 //    let state = makeid(16);
   //  let scope = `streaming user-read-email user-read-private user-library-read user-library-modify
@@ -76,8 +77,13 @@ export class RegisterComponent {
     // res.send({ status: "ok", result: authorize_url })
 
    window.location.href = "https://accounts.spotify.com/authorize?client_id=3ecc3a4b5b974d02a9b9e12b7f2ace9b&response_type=code&redirect_uri=http://localhost:4200/profile&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";  
-    
-   let idEndpoint = 'https://api.spotify.com/v1/me/id';
+  
+
+    //TODO: .env to hide spotify stuff, get the spotify ID, add it to the user's profile
+    //need to figure out how to get the GUID of the user we just created, where to do this call to post the spotifyID
+
+    /*
+     let idEndpoint = 'https://api.spotify.com/v1/me/id';
     let getResponse = fetch( idEndpoint, {
       method: 'GET',
       headers: {
@@ -86,10 +92,6 @@ export class RegisterComponent {
       }
     });
 
-    //TODO: .env to hide spotify stuff, get the spotify ID, add it to the user's profile
-    //need to figure out how to get the GUID of the user we just created, where to do this call to post the spotifyID
-
-    /*
     let postEndpoint = 'http://localhost:3000/spotify/link//getResponse';
     let postResponse = fetch( postEndpoint, {
       method: 'post',

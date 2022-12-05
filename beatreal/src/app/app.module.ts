@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -18,6 +18,8 @@ import { CommentsComponent } from './comments/comments.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { Http, Response } from '@angular/http';
+import {map} from 'rxjs';
 
 @NgModule({
   declarations: [
