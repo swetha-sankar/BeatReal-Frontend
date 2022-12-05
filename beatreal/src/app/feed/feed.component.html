@@ -1,14 +1,12 @@
+<app-blobs></app-blobs>
 <div id="feed">
   <div class="feed-container">
     <section class="banner">
-      <div class="logo">
-        <img src="../../assets/Logo.png" alt="beatreal logo" />
-      </div>
+      <h1 class="header">BeatReal</h1>
       <button class="post-button" (click)="postReel()">+</button>
     </section>
     <app-navbar [route]="route"></app-navbar>
     <section class="feed-list">
-      <app-blobs></app-blobs>
       <div *ngFor="let _ of posts">
         <app-post></app-post>
       </div>
