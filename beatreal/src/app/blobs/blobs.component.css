@@ -5,6 +5,10 @@
   background-color: white;
 }
 
+.goo-container {
+  filter: url("#goo");
+}
+
 .lamp {
   position: fixed;
   top: 0;
@@ -24,11 +28,12 @@
 } */
 
 .lava {
+  transition: top 2s ease 0s;
   filter: url("#goo");
   position: absolute;
   height: 100%;
   width: 100%;
-  top: 0;
+  top: -30%;
   left: 0;
 }
 
