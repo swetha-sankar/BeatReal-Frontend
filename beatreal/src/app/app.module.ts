@@ -16,6 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { BlobsComponent } from './blobs/blobs.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { Http, Response } from '@angular/http';
@@ -33,6 +34,7 @@ import {map} from 'rxjs';
     PostComponent,
     CommentsComponent,
     ProfileEditComponent,
+    BlobsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,15 @@
 #feed {
   height: 100%;
-  background-color: black;
   color: white;
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.feed-container {
+  z-index: 100;
+  padding-bottom: 3rem;
 }
 
 section {
