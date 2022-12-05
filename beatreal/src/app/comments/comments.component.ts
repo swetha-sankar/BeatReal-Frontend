@@ -1,5 +1,7 @@
+import { WebRequestService } from '../web-request.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BRComment } from 'src/types/brcomment';
 
 @Component({
   selector: 'app-comments',
@@ -8,43 +10,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class CommentsComponent implements OnInit {
   @Output() viewCommentsEvent = new EventEmitter();
-  constructor() {}
+  constructor(private WebReqService: WebRequestService) {}
+
+  defaultImg = '../../assets/emptyProfPic.png';
+  comments: BRComment[] = [];
+  Reel: any;
 
   commentForm = new FormGroup({
     textContent: new FormControl(null, [Validators.required]),
   });
-
-  newCommentObj = {
-    img: '../../assets/emptyProfPic.png',
-    username: 'user5678355',
-    textContent: 'Hello',
-  };
-
-  commentObj = {
-    img: '../../assets/emptyProfPic.png',
-    username: 'user5678355',
-    textContent: 'Hello',
-  };
-  commentObj2 = {
-    img: '../../assets/emptyProfPic.png',
-    username: 'user123987',
-    textContent:
-      'adilsfjaljdshflakudshfluahdsfluhasdfkjadsfhlkjadshfluhasdflujahsdkljfnalsjdflajdfskajdshfkjhasdjkfhaskjdfhajksdfhkajdgshfkahgsdbfkjadgshfkjhaskdjghaksgfalsudjfhakdfhkadfshjh',
-  };
-  commentObj3 = {
-    img: '../../assets/emptyProfPic.png',
-    username: 'user89273',
-    textContent:
-      'overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflowwwwww overflow',
-  };
-  comments = [
-    this.commentObj,
-    this.commentObj,
-    this.commentObj,
-    this.commentObj2,
-    this.commentObj3,
-    this.commentObj,
-  ];
 
   toggleComments() {
     this.viewCommentsEvent.emit();
@@ -54,14 +28,29 @@ export class CommentsComponent implements OnInit {
     if (!this.commentForm.valid) {
       alert('Please type a comment');
     } else {
-      this.newCommentObj = {
-        img: '../../assets/emptyProfPic.png',
-        username: 'user89273',
-        textContent: this.commentForm.get('textContent')!.getRawValue(),
-      };
-      this.comments.push(this.newCommentObj);
+      this.WebReqService.patch('commentReel', {
+        commenterId: '638bfc00855ff9480c112b71', //all Id's are from the database but are fixed for now
+        postId: '638bae096bc622b0b538193a',
+        textContent: this.commentForm.get('textContent')!.getRawValue(), //this is the only thing not fixed on a dummy value
+        posterId: '638badeec1f073c30c2aa54b',
+      }).subscribe(() => {
+        this.getComments();
+      });
     }
   }
 
-  ngOnInit(): void {}
+  getComments() {
+    this.WebReqService.get('users/638badeec1f073c30c2aa54b/reels').subscribe(
+      (res: any) => {
+        this.Reel = res.result.filter(
+          (reel: any) => reel._id == '638bae096bc622b0b538193a'
+        );
+        this.comments = this.Reel[0].comments;
+      }
+    );
+  }
+
+  ngOnInit(): void {
+    this.getComments();
+  }
 }
