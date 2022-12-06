@@ -11,6 +11,7 @@ body {
   color: white;
   font-family: "Heebo", sans-serif;
   font-size: 14px;
+  overflow: overlay;
 }
 
 body,
@@ -43,4 +44,22 @@ img {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #2a2a2a;
+}
+
+.text-glow {
+  transition: all 0.3s;
+}
+
+.text-glow:hover {
+  text-shadow: 0 0 15px white;
+  transform: scale(1.1);
+}
+
+.button-glow {
+  transition: all 0.3s;
+}
+
+.button-glow:hover {
+  box-shadow: 0 0 15px white;
+  transform: scale(1.1);
 }

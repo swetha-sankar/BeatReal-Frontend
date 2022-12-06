@@ -1,9 +1,11 @@
 <div class="post">
   <div class="header">
-    <div class="profile-pic">
-      <img src="./assets/emptyProfPic.png" alt="ProfilePic" />
+    <div class="user-container">
+      <div class="profile-pic">
+        <img src="./assets/emptyProfPic.png" alt="ProfilePic" />
+      </div>
+      <span class="username">Username</span>
     </div>
-    <span class="username">Username</span>
     <button id="spotifyTest" (click)="getSong()">
       Press Me for Current Song
     </button>
@@ -17,7 +19,14 @@
     loading="lazy"
   ></iframe>
   <div class="footer">
-    <button class="comments-button" (click)="toggleComments()">
+    <div
+      class="heart-button"
+      [ngClass]="{ liked: liked }"
+      (click)="handleLike()"
+    >
+      <div class="shadow-puppet"></div>
+    </div>
+    <button class="comments-button text-glow" (click)="toggleComments()">
       View X Comments
     </button>
     <div *ngIf="viewCommentsParent">

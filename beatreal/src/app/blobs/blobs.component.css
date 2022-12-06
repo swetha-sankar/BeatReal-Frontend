@@ -17,7 +17,7 @@
   width: 100vw;
   background: radial-gradient(
     ellipse at bottom,
-    rgb(255, 255, 255),
+    rgb(194, 255, 196),
     rgb(0, 0, 0)
   );
   opacity: 0.2;
@@ -69,7 +69,8 @@
 
 .blob {
   border-radius: 50%;
-  background: rgb(103, 230, 103);
+  /* background: rgb(103, 230, 103); */
+  background: rgb(79, 176, 79);
   /* Other sample colors:
     Orange: #e8630a
     Pink: #EA3281

@@ -10,13 +10,7 @@ nav {
 .nav-card {
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  transition: all 0.3s;
   background-color: black;
-}
-
-.nav-card:hover {
-  box-shadow: 0 0 15px white;
-  transform: scale(1.1);
 }
 
 .nav-card.selected {
