@@ -1,7 +1,7 @@
 import { WebRequestService } from '../web-request.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BRComment } from 'src/types/brcomment';
+import { BRComment } from 'src/types/types';
 
 @Component({
   selector: 'app-comments',
@@ -23,7 +23,6 @@ export class CommentsComponent implements OnInit {
   toggleComments() {
     this.viewCommentsEvent.emit();
   }
-
   writeComment() {
     if (!this.commentForm.valid) {
       alert('Please type a comment');

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  constructor() {}
+  constructor(private router: ActivatedRoute) {}
 
   route = 'profile';
-
-  ngOnInit(): void {}
+  username: string | undefined;
+  ngOnInit(): void {
+    console.log(this.router.snapshot.params);
+    this.username = this.router.snapshot.params['username'];
+  }
 }

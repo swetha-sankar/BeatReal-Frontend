@@ -40,6 +40,7 @@ export class RegisterComponent {
 
   url = 'http://localhost:3000/security/register';
   id = '';
+  errorMessage = '';
 
   register() {
     if (!this.registerForm.valid) {
@@ -54,10 +55,17 @@ export class RegisterComponent {
           lastName: this.registerForm.value.lastname,
           phoneNumber: this.registerForm.value.phoneNumber,
         })
-        .subscribe((result) => {
-          console.log(result);
-
-          //this.router.navigateByUrl('/profile');
+        .subscribe((res: any) => {
+          if (res['status'] == 'ok') {
+            console.log(res);
+            this.router.navigateByUrl(
+              `/profile/${this.registerForm.value.username}`
+            );
+          }
+          if (res['status'] == 'error') {
+            console.log(res);
+            alert(res['data']);
+          }
         });
     }
     return;
