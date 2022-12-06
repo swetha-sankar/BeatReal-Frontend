@@ -3,7 +3,13 @@
   padding: 1rem;
   margin-bottom: 15vh;
   border-radius: 15px;
-  background-color: rgb(103, 230, 103);
+  /* background-color: rgba(97, 162, 97, 0.5); */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .profile-pic {

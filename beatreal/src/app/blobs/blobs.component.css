@@ -9,6 +9,21 @@
   filter: url("#goo");
 }
 
+.light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(
+    ellipse at bottom,
+    rgb(255, 255, 255),
+    rgb(0, 0, 0)
+  );
+  opacity: 0.2;
+  z-index: 0;
+}
+
 .lamp {
   position: fixed;
   top: 0;
