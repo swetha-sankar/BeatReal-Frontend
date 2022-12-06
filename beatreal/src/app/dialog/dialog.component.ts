@@ -36,7 +36,19 @@ export class DialogComponent implements OnInit {
     }
 
     let songID = await fetch("https://api.spotify.com/v1/me/player/currently-playing", songParameters)
-    .then(response => response.json()).then(data => console.log(data));
+    .then(response => response.json()).then(data =>{ return data.item.id });
+
+    // POST request to our api to post song; takes in posterName and songID
+    let username: string = sessionStorage.getItem('username')!;
+    let params = {
+      method: 'PATCH',
+      headers: {
+        'posterName': username,
+        'songId': songID
+      }
+    }
+    let patchCurrent = await fetch("http://localhost:3000/api/insertReel", params)
+
   }
 
   /*

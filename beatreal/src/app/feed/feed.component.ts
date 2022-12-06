@@ -40,8 +40,6 @@ export class FeedComponent implements OnInit {
       sessionStorage.setItem('refresh_token', this.refresh_token);
     })
   }
-
-  // sendToComp = JSON.parse(`{"access_token":${this.access_token}, "token_type": ${this.token_type}, "scope": ${this.scope}, "expires_in": ${this.expires_in}, "refresh_token": ${this.refresh_token}}`);
   
   route = 'feed';
 
