@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { URLSearchParams } from "url";
+import { URL, URLSearchParams } from "url";
 
 function makeid(length: number) {
   let result = '';
@@ -57,7 +57,7 @@ export class RegisterComponent {
         })
         .subscribe((result) => {
           console.log(result);
-
+          this.spotifyRedirect();
           //this.router.navigateByUrl('/profile');
         });
     }
@@ -71,16 +71,30 @@ export class RegisterComponent {
   
     // res.send({ status: "ok", result: authorize_url })
 
-    const params = new URLSearchParams();
-    params.append('response_type', 'code');
-    params.append('client_id', `${process.env?.['spotifyClientID']}`);
-    params.append('scope', `${scope}`);
-    params.append('redirect_uri', 'http://localhost:3000/spotify/callback');
-    params.append('state', `${state}`);
-    params.append('show_dialog', 'true');
     console.log("redirected to spotify authorization");
-    window.location.href = `https://accounts.spotify.com/authorize?${params.toString()}`;
 
+    // const params = new URLSearchParams();
+    // params.append('response_type', 'code');
+    // params.append('client_id', `${process.env?.['spotifyClientID']}`);
+    // params.append('scope', `${scope}`);
+    // params.append('redirect_uri', 'http://localhost:3000/spotify/callback');
+    // params.append('state', `${state}`);
+    // params.append('show_dialog', 'true');
+    // window.location.href = `https://accounts.spotify.com/authorize?${params.toString()}`;
+   
+    // window.location.href = `https://accounts.spotify.com/authorize?response_type=code?client_id=${process.env?.['spotifyClientID']}?scope=${scope}?redirect_uri=${process.env?.['spotifyRedirectURI']}?state=${state}?show_dialog=true`;
+    // window.location.href = `https://accounts.spotify.com/authorize?response_type=code?client_id=3ecc3a4b5b974d02a9b9e12b7f2ace9b?scope=${scope}?redirect_uri=http://localhost:3000/spotify/callback?state=${state}?show_dialog=true`;
+    let getEndpoint = 'http://localhost:3000/spotify/login';
+    let getResponse = fetch(getEndpoint, {
+      method: 'GET',
+      headers: {
+        'Authorization':' ',
+        'Content-Type': 'application/json',
+        // 'Access-Control-Allow-Origin': '*',
+        // 'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
+        // 'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With'
+      }
+    })
 
     /*
     window.location.href = "https://accounts.spotify.com/authorize?" +
