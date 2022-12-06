@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+// import querystring from "query-string";
+import { URLSearchParams } from "url";
 
 function makeid(length: number) {
   let result = "";
@@ -70,15 +72,41 @@ export class RegisterComponent {
   }
 
   spotifyRedirect() {
-//    let state = makeid(16);
-  //  let scope = `streaming user-read-email user-read-private user-library-read user-library-modify
-//   user-read-playback-state user-modify-playback-state`;
+    let state = makeid(16);
+    let scope = `streaming user-read-email user-read-private user-library-read user-library-modify
+    user-read-playback-state user-modify-playback-state`;
   
     // res.send({ status: "ok", result: authorize_url })
 
-    // change redirect to :3000/callback
+    const params = new URLSearchParams();
+    params.append('response_type', 'code');
+    params.append('client_id', `${process.env?.['spotifyClientID']}`);
+    params.append('scope', `${scope}`);
+    params.append('redirect_uri', 'http://localhost:3000/spotify/callback');
+    params.append('state', `${state}`);
+    params.append('show_dialog', 'true');
     console.log("redirected to spotify authorization");
-    window.location.href = "https://accounts.spotify.com/authorize?client_id=3ecc3a4b5b974d02a9b9e12b7f2ace9b&response_type=code&redirect_uri=http://localhost:3000/spotify/callback&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";  
+    window.location.href = `https://accounts.spotify.com/authorize?${params.toString()}`;
+
+
+    /*
+    window.location.href = "https://accounts.spotify.com/authorize?" +
+    querystring.stringify({
+      response_type: "code",
+      client_id: process.env.spotifyClientID
+        ? process.env.spotifyClientID
+        : "",
+      scope: scope,
+      redirect_uri: "http://localhost:3000/spotify/callback",
+      // redirect_uri: process.env.spotifyRedirectURI
+      //   ? process.env.spotifyRedirectURI
+      //   : "",
+      state: state,
+      show_dialog: true, //false(by default). Whether or not to force the user to approve the app again if they’ve already done so
+    })
+    */
+    
+    // window.location.href = "https://accounts.spotify.com/authorize?client_id=3ecc3a4b5b974d02a9b9e12b7f2ace9b&response_type=code&redirect_uri=http://localhost:3000/spotify/callback&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";  
 
     //TODO: .env to hide spotify stuff, get the spotify ID, add it to the user's profile
     //need to figure out how to get the GUID of the user we just created, where to do this call to post the spotifyID

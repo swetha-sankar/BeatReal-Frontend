@@ -20,17 +20,17 @@ data: any;
 
 
   //Search
-  async search() {
-    //GET request using search to get the Artist ID
-    var artistParameters = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + accessToken
-      }
-    }
+  // async search() {
+  //   //GET request using search to get the Artist ID
+  //   let artistParameters = {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Authorization': 'Bearer ' + accessToken
+  //     }
+  //   }
 
-    var artistID = await fetch("https://api.spotify.com/vi/search", artistParameters);
-  }
+  //   let artistID = await fetch("https://api.spotify.com/vi/search", artistParameters);
+  // }
 
 }
