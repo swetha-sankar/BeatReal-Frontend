@@ -16,12 +16,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
-<<<<<<< HEAD
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
-=======
 import { BlobsComponent } from './blobs/blobs.component';
->>>>>>> 266bcb5afee009e1ffb7d19b1bd25180f90174e0
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {map} from 'rxjs';
@@ -38,11 +35,8 @@ import {map} from 'rxjs';
     PostComponent,
     CommentsComponent,
     ProfileEditComponent,
-<<<<<<< HEAD
     DialogComponent,
-=======
     BlobsComponent,
->>>>>>> 266bcb5afee009e1ffb7d19b1bd25180f90174e0
   ],
   imports: [
     BrowserModule,
