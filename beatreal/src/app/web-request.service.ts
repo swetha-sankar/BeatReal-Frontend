@@ -26,5 +26,9 @@ export class WebRequestService {
     return this.http.patch(`${this.ROOT_URL}/api/${uri}`, body);
   }
 
+  put(uri: string, body: Object) {
+    return this.http.put(`${this.ROOT_URL}/api/${uri}`, body);
+  }
+
   //delete should be done here also
 }

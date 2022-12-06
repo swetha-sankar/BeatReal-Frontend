@@ -45,26 +45,29 @@ export class RegisterComponent {
   register() {
     if (!this.registerForm.valid) {
       return;
+    } else {
+      this.http
+        .post(this.url, {
+          email: this.registerForm.value.email,
+          username: this.registerForm.value.username,
+          password: this.registerForm.value.password,
+          firstName: this.registerForm.value.firstname,
+          lastName: this.registerForm.value.lastname,
+          phoneNumber: this.registerForm.value.phoneNumber,
+        })
+        .subscribe((res: any) => {
+          if (res['status'] == 'ok') {
+            console.log(res);
+            this.router.navigateByUrl(
+              `/profile/${this.registerForm.value.username}`
+            );
+          }
+          if (res['status'] == 'error') {
+            console.log(res);
+            alert(res['data']);
+          }
+        });
     }
-    else{
-    this.http.post(this.url,{email: this.registerForm.value.email,
-      username: this.registerForm.value.username,
-      password: this.registerForm.value.password,
-      firstName: this.registerForm.value.firstname,
-      lastName: this.registerForm.value.lastname,
-      phoneNumber: this.registerForm.value.phoneNumber}).subscribe((res:any)=>{
-      if(res['status'] == "ok"){
-        console.log(res);
-        this.router.navigateByUrl('/profile');
-      }
-      if(res['status'] == "error"){
-        console.log(res);
-        alert(res['data']);
-      }
-    });
-      
-
-    } 
     return;
   }
 

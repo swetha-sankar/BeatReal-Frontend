@@ -1,20 +1,8 @@
 <div class="container">
-  <div class="lamp">
-    <div class="lava">
-      <div class="blob"></div>
-      <div class="blob"></div>
-      <div class="blob"></div>
-      <div class="blob"></div>
-      <div class="blob"></div>
-      <div class="blob"></div>
-      <div class="blob"></div>
-      <div class="blob"></div>
-      <div class="blob top"></div>
-    </div>
-  </div>
+  <app-blobs></app-blobs>
   <div class="outer-frame">
     <div class="inner-box-left">
-      <form>
+      <form [formGroup]="profilePicForm">
         <div class="mdl-card__media">
           <img
             class="article-image"
@@ -35,14 +23,14 @@
         </div>
       </form>
       <div style="text-align: center">
-        <a routerLink="/profile">
+        <a routerLink="/profile/{{ username }}">
           <button class="profile-button">
             <i class="fa fa-user"></i> PROFILE
           </button>
         </a>
       </div>
       <div style="text-align: center">
-        <a routerLink="/feed">
+        <a routerLink="/{{ username }}/feed">
           <button class="feed-button"><i class="fa fa-users"></i> FEED</button>
         </a>
       </div>
@@ -52,23 +40,23 @@
         <h2>Edit Profile</h2>
         <hr />
       </div>
-      <form>
+      <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
         <div class="input-container">
           <div class="label-row">
             <div class="label">Username:</div>
-            <input placeholder="Username" />
+            <input placeholder="Username" formControlName="username" />
           </div>
           <div class="label-row">
             <div class="label">First Name:</div>
-            <input placeholder="First Name" />
+            <input placeholder="First Name" formControlName="firstName" />
           </div>
           <div class="label-row">
             <div class="label">Last Name:</div>
-            <input placeholder="Last Name" />
+            <input placeholder="Last Name" formControlName="lastName" />
           </div>
           <div class="label-row">
             <div class="label">Phone Number:</div>
-            <input placeholder="Phone Number:" />
+            <input placeholder="Phone Number:" formControlName="phoneNumber" />
           </div>
           <div class="label-row">
             <div class="label">Bio:</div>
@@ -77,6 +65,7 @@
               rows="3"
               cols="25"
               maxlength="150"
+              formControlName="bio"
             ></textarea>
             <button class="submit-button" type="submit">Save</button>
           </div>
