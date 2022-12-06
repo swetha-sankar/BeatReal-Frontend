@@ -25,12 +25,13 @@ export class BlobsComponent implements OnInit {
     this.lavaHeight = -this.myLava.offsetHeight * -0.3;
   }
 
-  @HostListener('window:mousewheel', ['$event'])
+  @HostListener('document:wheel', ['$event'])
   scroll(event: WheelEvent) {
     // let scrollDist = 75;
     // if (event.deltaY < 0) {
     //   scrollDist *= -1;
     // }
+    console.log('event');
     this.lavaHeight += event.deltaY * 0.2;
     if (this.lavaHeight < 0) {
       this.lavaHeight = 0;
@@ -42,25 +43,4 @@ export class BlobsComponent implements OnInit {
 
     this.myLava.style.top = px;
   }
-
-  // @HostListener('window:scroll', []) onWindowScroll() {
-  //   console.log('do do do');
-  //   const currScroll =
-  //     window.pageYOffset ||
-  //     document.documentElement.scrollTop ||
-  //     document.body.scrollTop ||
-  //     0;
-  //   const scroll = currScroll - this.prevScrollY;
-  //   this.prevScrollY = currScroll;
-  //   this.lavaHeight += scroll;
-  //   if (this.lavaHeight < 0) {
-  //     this.lavaHeight = 0;
-  //   } else if (this.lavaHeight > this.myLava.offsetHeight * 0.6) {
-  //     this.lavaHeight = this.myLava.offsetHeight * 0.6;
-  //   }
-
-  //   const px = '-' + this.lavaHeight + 'px';
-
-  //   this.myLava.style.top = px;
-  // }
 }

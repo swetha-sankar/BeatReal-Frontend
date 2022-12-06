@@ -41,6 +41,7 @@ export class RegisterComponent {
 
   url = 'http://localhost:3000/security/register';
   id = '';
+  errorMessage = '';
 
   register() {
     if (!this.registerForm.valid) {
@@ -55,10 +56,24 @@ export class RegisterComponent {
           lastName: this.registerForm.value.lastname,
           phoneNumber: this.registerForm.value.phoneNumber,
         })
+<<<<<<< HEAD
         .subscribe((result) => {
           console.log(result);
           this.spotifyRedirect();
           //this.router.navigateByUrl('/profile');
+=======
+        .subscribe((res: any) => {
+          if (res['status'] == 'ok') {
+            console.log(res);
+            this.router.navigateByUrl(
+              `/profile/${this.registerForm.value.username}`
+            );
+          }
+          if (res['status'] == 'error') {
+            console.log(res);
+            alert(res['data']);
+          }
+>>>>>>> 8a7da6326eaa48b88fd2dd172c8c35ebd19eddc5
         });
     }
     return;

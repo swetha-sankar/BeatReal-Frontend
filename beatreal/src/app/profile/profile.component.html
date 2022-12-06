@@ -1,7 +1,7 @@
 <div id="profile">
   <section class="banner">
+    <h1 class="header">BeatReal</h1>
     <div class="logo">
-      <img src="../../assets/Logo.png" alt="beatreal logo" />
       <link href="profile.component.css" rel="stylesheet" />
       <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.green-light_green.min.css" />
     </div>
@@ -9,17 +9,26 @@
 
   <body id="top">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <app-navbar [route]="route"></app-navbar>
-
+      <app-navbar [route]="route" style="z-index: 3"></app-navbar>
       <main class="mdl-layout__content">
+        <app-blobs></app-blobs>
         <div class="site-content">
           <div class="mdl-grid site-max-width">
+<<<<<<< HEAD
             <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp page-content">
               <a routerLink="/profile/edit" class="outer-fa">
                 <button class="fa fa-gear"></button>
               </a>
+=======
+            <div
+              class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp page-content"
+            >
+>>>>>>> 8a7da6326eaa48b88fd2dd172c8c35ebd19eddc5
               <div class="mdl-card__title">
                 <h1 class="mdl-card__title-text">BACKEND INSERT FULL NAME</h1>
+                <a routerLink="/profile/{{ username }}/edit" class="outer-fa">
+                  <button class="fa fa-gear"></button>
+                </a>
               </div>
               <div class="mdl-card__media">
                 <img class="article-image" src="../../assets/emptyProfPic.png" alt="profile pic" />

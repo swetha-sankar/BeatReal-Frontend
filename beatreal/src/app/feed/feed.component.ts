@@ -23,6 +23,7 @@ export class FeedComponent implements OnInit {
     console.log("dialog open");
     this.dialog.open(DialogComponent);
   }
+  
 
   ngOnInit(): void {
     this.router.queryParams.subscribe(params => {

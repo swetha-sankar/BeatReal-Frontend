@@ -17,6 +17,7 @@ import { PostComponent } from './post/post.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 import { DialogComponent } from './dialog/dialog.component';
 import { BlobsComponent } from './blobs/blobs.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -49,6 +50,7 @@ import {map} from 'rxjs';
     ReactiveFormsModule,
     MatCardModule,
     MatDialogModule,
+    MatDividerModule,
     BrowserAnimationsModule,
     HttpClientModule
   ],

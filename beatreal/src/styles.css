@@ -11,6 +11,7 @@ body {
   color: white;
   font-family: "Heebo", sans-serif;
   font-size: 14px;
+  overflow: overlay;
 }
 
 body,
@@ -23,4 +24,42 @@ dl {
 img {
   max-width: 100%;
   display: block;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(61, 61, 61);
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2a2a2a;
+}
+
+.text-glow {
+  transition: all 0.3s;
+}
+
+.text-glow:hover {
+  text-shadow: 0 0 15px white;
+  transform: scale(1.1);
+}
+
+.button-glow {
+  transition: all 0.3s;
+}
+
+.button-glow:hover {
+  box-shadow: 0 0 15px white;
+  transform: scale(1.1);
 }

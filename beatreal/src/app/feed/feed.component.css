@@ -10,6 +10,8 @@
 .header {
   font-size: 50px;
   line-height: 0.1em;
+  /* pointer-events: none; */
+  user-select: none;
 }
 
 .feed-container {
@@ -25,20 +27,23 @@ section {
   margin: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .post-button {
   background: none;
   color: inherit;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
   border: none;
   padding: 0;
   font-weight: 900;
   font-size: 40px;
   cursor: pointer;
   outline: inherit;
-  padding-right: 1rem;
 }
 
 .feed-list {
-  padding: 2rem inherit;
+  padding: 2rem 15%;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 @Component({
@@ -19,10 +20,29 @@ export class DialogComponent implements OnInit {
     console.log('sessionStorage stuffs', sessionStorage.getItem("access_token"));
   }
 
+  test() {
+    console.log('test');
+  }
 
+  async postCurrent() {
+    console.log('postCurrent');
+    // GET request for currently playing song using spotify api
+    let songParameters = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+      }
+    }
+
+    let songID = await fetch("https://api.spotify.com/v1/me/player/currently-playing", songParameters)
+    .then(response => response.json()).then(data => console.log(data));
+  }
+
+  /*
   //Search
   async search() {
-    //GET request using search to get the Artist ID
+    //GET request using search to get the song ID
     let songParameters = {
       method: 'GET',
       headers: {
@@ -34,5 +54,6 @@ export class DialogComponent implements OnInit {
     let songID = await fetch("https://api.spotify.com/v1/search?q=" + this.searchForm.value.search + '&type=track,artist', songParameters)
     .then(response => response.json()).then(data => console.log(data));
   }
+  */
 
 }
