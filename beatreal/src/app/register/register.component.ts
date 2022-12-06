@@ -76,8 +76,9 @@ export class RegisterComponent {
   
     // res.send({ status: "ok", result: authorize_url })
 
-   window.location.href = "https://accounts.spotify.com/authorize?client_id=3ecc3a4b5b974d02a9b9e12b7f2ace9b&response_type=code&redirect_uri=http://localhost:4200/profile&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";  
-  
+    // change redirect to :3000/callback
+    console.log("redirected to spotify authorization");
+    window.location.href = "https://accounts.spotify.com/authorize?client_id=3ecc3a4b5b974d02a9b9e12b7f2ace9b&response_type=code&redirect_uri=http://localhost:3000/spotify/callback&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";  
 
     //TODO: .env to hide spotify stuff, get the spotify ID, add it to the user's profile
     //need to figure out how to get the GUID of the user we just created, where to do this call to post the spotifyID
