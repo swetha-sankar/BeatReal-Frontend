@@ -3,7 +3,16 @@
   padding: 1rem;
   margin-bottom: 15vh;
   border-radius: 15px;
-  background-color: rgb(76, 175, 80);
+  background-color: rgb(103, 230, 103);
+}
+
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid white;
+  background-color: white;
 }
 
 iframe {

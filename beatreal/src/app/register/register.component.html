@@ -82,11 +82,7 @@
               >Invalid phone number</mat-error
             >
           </mat-form-field>
-          <button
-            mat-raised-button
-            [disabled]="!registerForm.valid"
-            (click)="register()"
-          >
+          <button mat-raised-button [disabled]="!registerForm.valid">
             Create Account
           </button>
           
