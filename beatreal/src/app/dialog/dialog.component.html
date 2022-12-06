@@ -1,7 +1,23 @@
-<h2 mat-dialog-title>Post a song</h2>
-<mat-dialog-content>Content is here</mat-dialog-content>
-<div>hi</div>
+<h2 mat-dialog-title>Search Artist or Song</h2>
+<!-- <mat-dialog-content>Content is here</mat-dialog-content> -->
+<!-- <div>hi</div> -->
 <mat-dialog-actions>
-    <button mat-button (click)="search()">search</button>
+    <form [formGroup]="searchForm" (ngSubmit)="search()">
+        <div class="formField">
+                <!-- <mat-card class="mat-card-container"> -->
+                    <mat-form-field floatLabel="always" style="text-align: center">
+                        <input
+                            matInput
+                            type="text"
+                            formControlName="search"
+                            placeholder=""
+                            name="search"
+                            required
+                            />
+                    </mat-form-field>
+                    <button mat-raised-button (click)="search()">Search</button>
+                <!-- </mat-card> -->
+        </div>
+    </form>
     <button mat-button mat-dialog-close="true" class="close">&times;</button>
 </mat-dialog-actions>

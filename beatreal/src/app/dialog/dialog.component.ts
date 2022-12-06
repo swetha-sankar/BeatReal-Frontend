@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -8,6 +9,9 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
+  searchForm = new FormGroup({
+    search: new FormControl(null, [Validators.required])
+  })
 
   constructor(private httpClient: HttpClient) { }
 
@@ -15,15 +19,11 @@ export class DialogComponent implements OnInit {
     console.log('sessionStorage stuffs', sessionStorage.getItem("access_token"));
   }
 
-  // artistID="https://api.spotify.com/vi/search";
-  headers= new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', ' ');
-
 
   //Search
-
   async search() {
     //GET request using search to get the Artist ID
-    let artistParameters = {
+    let songParameters = {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export class DialogComponent implements OnInit {
       }
     }
 
-    let artistID = await fetch("https://api.spotify.com/v1/search?q=" + 'Taylor Swift' + '&type=artist', artistParameters)
+    let songID = await fetch("https://api.spotify.com/v1/search?q=" + this.searchForm.value.search + '&type=track,artist', songParameters)
     .then(response => response.json()).then(data => console.log(data));
   }
 
