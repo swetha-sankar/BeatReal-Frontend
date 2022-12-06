@@ -52,7 +52,9 @@ export class ProfileEditComponent implements OnInit {
     phoneNumber: new FormControl(null, [Validators.required]),
     bio: new FormControl(null, [Validators.required]),
   });
-  profilePicForm = new FormGroup({});
+  profilePicForm = new FormGroup({
+    profilePic: new FormControl(null, [Validators.required]),
+  });
 
   onSubmit() {
     //Object.keys will find all the keys in the form group such as Username, Firstname ...
@@ -90,7 +92,7 @@ export class ProfileEditComponent implements OnInit {
 
   editUserRequest() {
     this.WebReqService.put(
-      'editUser/638badeec1f073c30c2aa54b',
+      'editUser/638badeec1f073c30c2aa54b', //dummy value user
       this.userObject
     ).subscribe(() => {
       (res: any) => {
