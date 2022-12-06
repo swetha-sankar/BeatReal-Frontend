@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs';
-import { User } from 'src/types/user';
+import { User } from 'src/types/types';
 import { WebRequestService } from '../web-request.service';
 
-interface formObject {
+interface FormObject {
   username: string;
   firstName: string;
   lastName: string;
@@ -18,22 +19,23 @@ interface formObject {
   styleUrls: ['./profile-edit.component.css'],
 })
 export class ProfileEditComponent implements OnInit {
-  constructor(private WebReqService: WebRequestService) {}
+  username: string = '';
+  constructor(
+    private WebReqService: WebRequestService,
+    private router: ActivatedRoute
+  ) {
+    this.username = this.router.snapshot.params['username'];
+  }
   ngOnInit(): void {
-    this.getUser();
+    //this.getUser();
+    console.log('hello');
   }
 
-  userObject: User = {
-    id: '',
+  userObject: FormObject = {
     username: '',
     firstName: '',
     lastName: '',
     phoneNumber: '',
-    spotifyId: '',
-    friendIds: [],
-    reels: [],
-    email: '',
-    profilePic: null,
     bio: '',
   };
   getUser() {
@@ -61,27 +63,27 @@ export class ProfileEditComponent implements OnInit {
     //for each key we will use that as an index for form.value[key].
     //'keyof formobject' must be specified
     Object.keys(this.editProfileForm.controls).forEach((control: string) => {
-      if (this.editProfileForm.value[control as keyof formObject] != null) {
+      if (this.editProfileForm.value[control as keyof FormObject] != null) {
         switch (control) {
           case 'username':
             this.userObject.username =
-              this.editProfileForm.value[control as keyof formObject]!;
+              this.editProfileForm.value[control as keyof FormObject]!;
             break;
           case 'firstName':
             this.userObject.firstName =
-              this.editProfileForm.value[control as keyof formObject]!;
+              this.editProfileForm.value[control as keyof FormObject]!;
             break;
           case 'lastName':
             this.userObject.lastName =
-              this.editProfileForm.value[control as keyof formObject]!;
+              this.editProfileForm.value[control as keyof FormObject]!;
             break;
           case 'phoneNumber':
             this.userObject.phoneNumber =
-              this.editProfileForm.value[control as keyof formObject]!;
+              this.editProfileForm.value[control as keyof FormObject]!;
             break;
           case 'bio':
             this.userObject.bio =
-              this.editProfileForm.value[control as keyof formObject]!;
+              this.editProfileForm.value[control as keyof FormObject]!;
             break;
         }
       }

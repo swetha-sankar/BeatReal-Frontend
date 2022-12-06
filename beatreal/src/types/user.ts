@@ -1,13 +1,15 @@
-import { Reel } from './reel';
+import { Reel } from "./reel";
 
 export interface User {
-  id: string;
+  _id?: any;
   username: string;
+  password: string;
   firstName: string;
   lastName: string;
   phoneNumber: string;
+  updateDate: Date;
   spotifyId: string;
-  friendIds: string[];
+  friendNames: string[];
   reels: Reel[];
   email: string;
   profilePic: string | null;

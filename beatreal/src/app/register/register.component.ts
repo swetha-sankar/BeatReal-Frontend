@@ -57,7 +57,9 @@ export class RegisterComponent {
         .subscribe((result) => {
           console.log(result);
 
-          //this.router.navigateByUrl('/profile');
+          this.router.navigateByUrl(
+            `/profile/${this.registerForm.value.username}`
+          );
         });
     }
     return;
