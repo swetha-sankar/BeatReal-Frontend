@@ -1,106 +1,69 @@
 #profile {
-  background-color: black;
+  height: 100%;
   color: white;
-}
-
-section {
-  padding: 0 10%;
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .banner {
-  margin: 0;
+  margin: 2rem 0;
   display: flex;
   justify-content: space-between;
-}
-
-img {
-  max-width: 100%;
-}
-
-.mdl-layout__content {
-  background-color: black;
-}
-
-.site-content {
-  margin: 1em auto;
-  min-height: 580px;
-}
-
-.page-content {
-  padding-bottom: 2em;
-}
-
-.site-max-width {
-  max-width: 900px;
-  margin: auto;
-}
-
-.site-copy {
-  max-width: 700px;
-}
-
-img.article-image {
-  width: 100%;
-  height: 100%;
-  border-radius: 100ch;
-}
-
-.mdl-card__media {
-  width: 25%;
-  height: 25%;
-  margin: auto;
-  border-radius: 100ch;
-}
-
-.demo-card-image.mdl-card {
-  width: 192px;
-  height: 192px;
-}
-
-.memory1 {
-  background: url("../../assets/emptyProfPic.png") center/cover;
-}
-
-.memory2 {
-  background: url("../../assets/emptyProfPic.png") center/cover;
-}
-
-.demo-card-image > .mdl-card__actions {
-  height: 52px;
-  padding: 16px;
-  background: black;
-}
-
-.demo-card-image__filename {
-  color: #fff;
-  font-family: "Heebo", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.outer-fa {
-  margin: auto;
-  margin-right: 0%;
-}
-
-.fa-gear {
-  position: relative;
-  font-size: 30px;
-  border: none;
-  background-color: #fff;
-}
-.fa-gear:hover,
-.fa-gear:focus {
-  color: gray;
-  text-decoration: none;
-  cursor: pointer;
+  align-items: center;
 }
 
 .header {
   font-size: 50px;
-  font-weight: bold;
-  z-index: 4;
+  line-height: 50px;
+  margin: 0;
+  /* pointer-events: none; */
+  user-select: none;
+  flex-shrink: 1;
 }
-h3 {
+
+.profile-container {
+  z-index: 100;
+  padding-bottom: 3rem;
+}
+
+.profile-section {
+  padding: 0 20%;
+}
+
+.profile-content {
+  margin-top: 2rem;
+  background-color: white;
   color: black;
+  border-radius: 10px;
+  height: 60vh;
+  padding: 2rem 5%;
+}
+
+.profile-content-top {
+  display: flex;
+  gap: 1rem;
+}
+
+.profile-pic {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid black;
+  background-color: white;
+  transition: all 0.3s;
+}
+
+.username {
+}
+
+.full-name {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+section {
+  padding: 0 10%;
 }
