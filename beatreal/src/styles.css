@@ -3,6 +3,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 * {
   box-sizing: border-box;
+  font-family: "Heebo", sans-serif;
 }
 html,
 body {

@@ -13,7 +13,58 @@ export class CommentsComponent implements OnInit {
   constructor(private WebReqService: WebRequestService) {}
 
   defaultImg = '../../assets/emptyProfPic.png';
-  comments: BRComment[] = [];
+  comments: BRComment[] = [
+    {
+      commentId: 'as;dkljf;alskdfla',
+      commenterName: 'aidant',
+      textContent: 'hiya there!',
+    },
+    {
+      commentId: 'as;dkljf;alskdfla',
+      commenterName: 'CRULL',
+      textContent: 'hiya there!',
+    },
+    {
+      commentId: 'as;dkljf;alskdfla',
+      commenterName: 'I AM CRULL',
+      textContent: 'hiya there!',
+    },
+    {
+      commentId: 'as;dkljf;alskdfla',
+      commenterName: 'aidant',
+      textContent: 'hiya there!',
+    },
+    {
+      commentId: 'as;dkljf;alskdfla',
+      commenterName: 'aidant',
+      textContent: 'hiya there!',
+    },
+    {
+      commentId: 'as;dkljf;alskdfla',
+      commenterName: 'aidant',
+      textContent: 'hiya there!',
+    },
+    {
+      commentId: 'as;dkljf;alskdfla',
+      commenterName: 'aidant',
+      textContent: 'hiya there!',
+    },
+    {
+      commentId: 'as;dkljf;alskdfla',
+      commenterName: 'aidant',
+      textContent: 'hiya there!',
+    },
+    {
+      commentId: 'as;dkljf;alskdfla',
+      commenterName: 'aidant',
+      textContent: 'hiya there!',
+    },
+    {
+      commentId: 'as;dkljf;alskdfla',
+      commenterName: 'aidant',
+      textContent: 'hiya there!',
+    },
+  ];
   Reel: any;
 
   commentForm = new FormGroup({
