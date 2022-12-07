@@ -1,8 +1,9 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, Input } from '@angular/core';
 //import { Observable } from 'rxjs/Observable';
 //import { Http, Response } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs';
+import { Post } from 'src/types/post';
 //import 'rxjs/add/operator/catch';
 //import 'rxjs/add/operator/map';
 
@@ -14,6 +15,7 @@ import { map } from 'rxjs';
 @Injectable()
 export class PostComponent implements OnInit {
   //constructor (private http: Http) {}
+  @Input() post: Post | undefined;
   constructor(private httpClient: HttpClient) {}
 
   liked = false;
@@ -27,7 +29,10 @@ export class PostComponent implements OnInit {
     this.viewCommentsParent = !this.viewCommentsParent;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('1');
+    console.log(this.post);
+  }
 
   songUrl = 'https://api.spotify.com/v1/me/player/currently-playing';
   headers = new HttpHeaders()
