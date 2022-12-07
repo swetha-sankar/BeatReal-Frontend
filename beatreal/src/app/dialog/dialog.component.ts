@@ -36,8 +36,6 @@ export class DialogComponent implements OnInit {
       }
     }
 
-
-
     let songID = await fetch("https://api.spotify.com/v1/me/player/currently-playing", songParameters)
     .then(response => response.json())
     .then(data =>{ return data.item.id });
@@ -51,6 +49,8 @@ export class DialogComponent implements OnInit {
     }).subscribe(() => {
       console.log("insertedReel");
     });
+
+    window.location.reload();
 
   }
 
