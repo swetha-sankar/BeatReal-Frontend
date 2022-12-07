@@ -57,6 +57,7 @@ export class ProfileEditComponent implements OnInit {
     //'keyof formobject' must be specified
     Object.keys(this.editProfileForm.controls).forEach((control: string) => {
       if (this.editProfileForm.value[control as keyof FormObject] != null) {
+        console.log('hello');
         switch (control) {
           case 'username':
             this.userObject.username =
