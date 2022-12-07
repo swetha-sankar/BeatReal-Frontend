@@ -6,8 +6,8 @@
     </section>
     <app-navbar [route]="route"></app-navbar>
     <section class="feed-list">
-      <div *ngFor="let _ of posts">
-        <app-post></app-post>
+      <div *ngFor="let post of posts">
+        <app-post [post]="post"></app-post>
       </div>
     </section>
   </div>
