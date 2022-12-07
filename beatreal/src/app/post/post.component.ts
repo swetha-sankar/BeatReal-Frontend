@@ -11,15 +11,12 @@ import {
 })
 @Injectable()
 export class PostComponent implements OnInit {
-  @Input() post: Post | undefined;
-  constructor(private sanitizer: DomSanitizer) {}
+  @Input() post: Post;
+  constructor(private sanitizer: DomSanitizer) {
+    this.post={username:"", reel: {songId: "", reelId: "", posterName: "", date: new Date(), likes: [], comments: []}, profilePic: ""};
+  }
 
   liked = false;
-
-  //sample posts to get from feed
-  username = "lauren1";
-	profilePic = "";
-	reel = {songId: "71qKWIBggc7poNXclWN53M"};
 
   handleLike() {
     this.liked = !this.liked;

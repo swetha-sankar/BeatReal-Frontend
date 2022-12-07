@@ -4,12 +4,12 @@
       <div class="profile-pic">
         <img src="./assets/emptyProfPic.png" alt="ProfilePic" />
       </div>
-      <span class="username">@{{ username }}</span>
+      <span class="username">@{{ post.username }}</span>
     </div>
   </div>
   <iframe
     style="border-radius: 12px"
-    [src]="getSpotify(reel.songId)"
+    [src]="getSpotify(post.reel.songId)"
     frameBorder="0"
     allowfullscreen=""
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
