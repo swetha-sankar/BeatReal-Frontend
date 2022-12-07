@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'profile/edit', component: ProfileEditComponent },
-  { path: 'blobs', component: BlobsComponent },
 ];
 
 @NgModule({
