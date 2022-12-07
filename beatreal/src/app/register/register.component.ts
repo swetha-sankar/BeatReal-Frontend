@@ -58,9 +58,11 @@ export class RegisterComponent {
         .subscribe((res: any) => {
           if (res['status'] == 'ok') {
             console.log(res);
-            this.router.navigateByUrl(
-              `/profile/${this.registerForm.value.username}`
+            sessionStorage.setItem(
+              'username',
+              `${this.registerForm.value.username}`
             );
+            this.router.navigateByUrl(`/profile`);
           }
           if (res['status'] == 'error') {
             console.log(res);
