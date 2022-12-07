@@ -1,4 +1,7 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, Input } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs';
+import { Post } from 'src/types/post';
 import {
   SafeUrl, DomSanitizer
 } from '@angular/platform-browser';
@@ -10,6 +13,7 @@ import {
 })
 @Injectable()
 export class PostComponent implements OnInit {
+  @Input() post: Post | undefined;
   constructor(private sanitizer: DomSanitizer) {}
 
   liked = false;
@@ -28,7 +32,10 @@ export class PostComponent implements OnInit {
     this.viewCommentsParent = !this.viewCommentsParent;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('1');
+    console.log(this.post);
+  }
 
 
   getSpotify(songId: string): SafeUrl {

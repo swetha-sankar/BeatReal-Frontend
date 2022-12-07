@@ -20,6 +20,18 @@
           </a>
         </div>
         <p class="bio">{{ user.bio }}</p>
+        <div class="add-friend">
+          <span class="add-friend-content">Add Friend: </span>
+          <form [formGroup]="addFriendForm" (ngSubmit)="addFriend()">
+            <input
+              type="text"
+              class="friend-input add-friend-content"
+              formControlName="friendName"
+            />
+            <button type="submit" class="button-card">Submit</button>
+          </form>
+        </div>
+
         <div class="memories">
           <div *ngFor="let reel of user.reels">
             <h2 class="memory-date">
