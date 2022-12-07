@@ -18,7 +18,7 @@ export class DialogComponent implements OnInit {
   constructor(private httpClient: HttpClient, private WebReqService: WebRequestService ) { }
 
   ngOnInit(): void {
-    console.log('sessionStorage stuffs', sessionStorage.getItem("access_token"));
+    console.log('localStorage stuffs', localStorage.getItem("access_token"));
   }
 
   test() {
@@ -32,7 +32,7 @@ export class DialogComponent implements OnInit {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       }
     }
 
@@ -42,7 +42,7 @@ export class DialogComponent implements OnInit {
 
     
     // POST request to our api to post song; takes in posterName and songID
-    let username: string = sessionStorage.getItem('username')!;
+    let username: string = localStorage.getItem('username')!;
     this.WebReqService.patch('insertReel', {
       posterName: username,
       songId: songID
@@ -62,7 +62,7 @@ export class DialogComponent implements OnInit {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       }
     }
 

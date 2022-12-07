@@ -58,13 +58,13 @@ export class RegisterComponent {
         })
         .subscribe((res: any) => {
           console.log(res);
-          sessionStorage.setItem(
+          localStorage.setItem(
             'username',
             `${this.registerForm.value.username}`
           );
           if (res['status'] == 'ok') {
             console.log(res);
-            sessionStorage.setItem(
+            localStorage.setItem(
               'username',
               `${this.registerForm.value.username}`
             );

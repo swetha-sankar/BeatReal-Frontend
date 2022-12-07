@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   @Input() route: String = '';
-  username: string = sessionStorage.getItem('username')!;
+  username: string = localStorage.getItem('username')!;
   constructor() {}
 
   ngOnInit(): void {}
