@@ -40,7 +40,7 @@ export class CommentsComponent implements OnInit {
           commenterName: sessionStorage.getItem('username')!,
           textContent: this.commentForm.get('textContent')!.getRawValue(),
         });
-        this.commentForm.value.textContent = '';
+        this.commentForm.reset();
       });
     }
   }
