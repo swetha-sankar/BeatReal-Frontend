@@ -16,7 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FeedComponent } from './feed/feed.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { PostComponent } from './post/post.component';
+import { CachedSrcDirective, PostComponent } from './post/post.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -41,6 +41,7 @@ import { map } from 'rxjs';
     ProfileEditComponent,
     DialogComponent,
     BlobsComponent,
+    CachedSrcDirective,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +56,7 @@ import { map } from 'rxjs';
     MatDialogModule,
     MatDividerModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },

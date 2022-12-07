@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { ActivatedRoute } from '@angular/router';
@@ -23,6 +23,10 @@ export class FeedComponent implements OnInit {
     private router: ActivatedRoute,
     private WebReqService: WebRequestService
   ) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('I CHANGED');
+  }
 
   openDialog() {
     console.log('dialog open');

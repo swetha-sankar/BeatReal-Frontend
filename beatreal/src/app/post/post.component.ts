@@ -1,7 +1,36 @@
-import { Component, OnInit, Injectable, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Injectable,
+  Input,
+  Directive,
+  ElementRef,
+  Renderer2,
+} from '@angular/core';
 import { Post } from 'src/types/post';
 import { Reel } from 'src/types/reel';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
+
+@Directive({
+  selector: 'iframe',
+})
+export class CachedSrcDirective {
+  @Input()
+  public get cachedSrc(): string {
+    return this.elRef.nativeElement.src;
+  }
+  public set cachedSrc(src: string) {
+    const newSrc = `https://open.spotify.com/embed/track/${src}?utm_source=generator`;
+    if (this.elRef.nativeElement.src !== newSrc) {
+      console.log(newSrc, 'BLAAAAH');
+      this.renderer.setAttribute(this.elRef.nativeElement, 'src', newSrc);
+    }
+  }
+
+  constructor(private elRef: ElementRef, private renderer: Renderer2) {
+    this.elRef.nativeElement.src = '';
+  }
+}
 
 @Component({
   selector: 'app-post',
@@ -42,9 +71,9 @@ export class PostComponent implements OnInit {
     this.reel = this.post?.reel;
   }
 
-  getSpotify(songId: string): SafeUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(
-      `https://open.spotify.com/embed/track/${songId}?utm_source=generator`
-    );
-  }
+  // getSpotify(songId: string): SafeUrl {
+  //   return this.sanitizer.bypassSecurityTrustResourceUrl(
+  //     `https://open.spotify.com/embed/track/${songId}?utm_source=generator`
+  //   );
+  // }
 }

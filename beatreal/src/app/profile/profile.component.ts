@@ -40,11 +40,11 @@ export class ProfileComponent implements OnInit {
     friendName: '',
   });
 
-  getSpotify(songId: string): SafeUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(
-      `https://open.spotify.com/embed/track/${songId}?utm_source=generator`
-    );
-  }
+  // getSpotify(songId: string): SafeUrl {
+  //   return this.sanitizer.bypassSecurityTrustResourceUrl(
+  //     `https://open.spotify.com/embed/track/${songId}?utm_source=generator`
+  //   );
+  // }
 
   addFriend() {
     this.WebReqService.patch('addFriend', {

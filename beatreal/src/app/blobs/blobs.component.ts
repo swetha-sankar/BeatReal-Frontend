@@ -4,6 +4,7 @@ import {
   ElementRef,
   HostListener,
   OnInit,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 
@@ -24,8 +25,11 @@ export class BlobsComponent implements OnInit {
     this.myLava = document.getElementById('lavaid');
     this.lavaHeight = -this.myLava.offsetHeight * -0.3;
   }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('I CHANGED');
+  }
 
-  @HostListener('document:wheel', ['$event'])
+  @HostListener('window:wheel', ['$event'])
   scroll(event: WheelEvent) {
     // let scrollDist = 75;
     // if (event.deltaY < 0) {
