@@ -1,9 +1,8 @@
 <div class="container">
-  <app-blobs></app-blobs>
   <div class="outer-frame">
     <div class="inner-box-left">
       <form [formGroup]="profilePicForm">
-        <div class="mdl-card__media">
+        <div class="profile-pic">
           <img
             class="article-image"
             src="../../assets/emptyProfPic.png"
@@ -22,17 +21,17 @@
           />
         </div>
       </form>
-      <div style="text-align: center">
-        <a routerLink="/profile/{{ username }}">
-          <button class="profile-button">
-            <i class="fa fa-user"></i> PROFILE
-          </button>
-        </a>
-      </div>
-      <div style="text-align: center">
-        <a routerLink="/{{ username }}/feed">
-          <button class="feed-button"><i class="fa fa-users"></i> FEED</button>
-        </a>
+      <div class="nav-separator">
+        <div style="text-align: center">
+          <a routerLink="/{{ username }}/feed">
+            <button class="button-card button-glow">Feed</button>
+          </a>
+        </div>
+        <div style="text-align: center">
+          <a routerLink="/profile/{{ username }}">
+            <button class="button-card button-glow">Profile</button>
+          </a>
+        </div>
       </div>
     </div>
     <div class="inner-box-right">
