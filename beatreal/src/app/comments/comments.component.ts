@@ -1,7 +1,7 @@
 import { WebRequestService } from '../web-request.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BRComment } from 'src/types/types';
+import { BRComment, Reel } from 'src/types/types';
 
 @Component({
   selector: 'app-comments',
@@ -10,62 +10,11 @@ import { BRComment } from 'src/types/types';
 })
 export class CommentsComponent implements OnInit {
   @Output() viewCommentsEvent = new EventEmitter();
+  @Input() reel: Reel | undefined;
   constructor(private WebReqService: WebRequestService) {}
 
   defaultImg = '../../assets/emptyProfPic.png';
-  comments: BRComment[] = [
-    {
-      commentId: 'as;dkljf;alskdfla',
-      commenterName: 'aidant',
-      textContent: 'hiya there!',
-    },
-    {
-      commentId: 'as;dkljf;alskdfla',
-      commenterName: 'CRULL',
-      textContent: 'hiya there!',
-    },
-    {
-      commentId: 'as;dkljf;alskdfla',
-      commenterName: 'I AM CRULL',
-      textContent: 'hiya there!',
-    },
-    {
-      commentId: 'as;dkljf;alskdfla',
-      commenterName: 'aidant',
-      textContent: 'hiya there!',
-    },
-    {
-      commentId: 'as;dkljf;alskdfla',
-      commenterName: 'aidant',
-      textContent: 'hiya there!',
-    },
-    {
-      commentId: 'as;dkljf;alskdfla',
-      commenterName: 'aidant',
-      textContent: 'hiya there!',
-    },
-    {
-      commentId: 'as;dkljf;alskdfla',
-      commenterName: 'aidant',
-      textContent: 'hiya there!',
-    },
-    {
-      commentId: 'as;dkljf;alskdfla',
-      commenterName: 'aidant',
-      textContent: 'hiya there!',
-    },
-    {
-      commentId: 'as;dkljf;alskdfla',
-      commenterName: 'aidant',
-      textContent: 'hiya there!',
-    },
-    {
-      commentId: 'as;dkljf;alskdfla',
-      commenterName: 'aidant',
-      textContent: 'hiya there!',
-    },
-  ];
-  Reel: any;
+  comments: BRComment[] = [];
 
   commentForm = new FormGroup({
     textContent: new FormControl(null, [Validators.required]),
@@ -82,19 +31,21 @@ export class CommentsComponent implements OnInit {
         commenterName: sessionStorage.getItem('username'),
         textContent: this.commentForm.get('textContent')!.getRawValue(),
         posterName: sessionStorage.getItem('username'),
+        reelId: this.reel!.reelId,
       }).subscribe(() => {
-        this.getComments();
+        //This is just for display, the backend gets updated too but this is just to not force
+        //a refresh
+        this.comments!.push({
+          commentId: 'ajdsfh',
+          commenterName: sessionStorage.getItem('username')!,
+          textContent: this.commentForm.get('textContent')!.getRawValue(),
+        });
       });
     }
   }
 
   getComments() {
-    this.WebReqService.get(
-      `users/${sessionStorage.getItem('username')}/reels`
-    ).subscribe((res: any) => {
-      this.Reel = res.result.filter((reel: any) => reel._id == '');
-      this.comments = this.Reel[0].comments;
-    });
+    this.comments = this.reel!.comments;
   }
 
   ngOnInit(): void {

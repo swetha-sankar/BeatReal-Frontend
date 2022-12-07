@@ -1,8 +1,7 @@
 import { Component, OnInit, Injectable, Input } from '@angular/core';
 import { Post } from 'src/types/post';
-import {
-  SafeUrl, DomSanitizer
-} from '@angular/platform-browser';
+import { Reel } from 'src/types/reel';
+import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post',
@@ -12,8 +11,20 @@ import {
 @Injectable()
 export class PostComponent implements OnInit {
   @Input() post: Post;
+  reel: Reel | undefined;
   constructor(private sanitizer: DomSanitizer) {
-    this.post={username:"", reel: {songId: "", reelId: "", posterName: "", date: new Date(), likes: [], comments: []}, profilePic: ""};
+    this.post = {
+      username: '',
+      reel: {
+        songId: '',
+        reelId: '',
+        posterName: '',
+        date: new Date(),
+        likes: [],
+        comments: [],
+      },
+      profilePic: '',
+    };
   }
 
   liked = false;
@@ -28,10 +39,8 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('1');
-    console.log(this.post);
+    this.reel = this.post?.reel;
   }
-
 
   getSpotify(songId: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
