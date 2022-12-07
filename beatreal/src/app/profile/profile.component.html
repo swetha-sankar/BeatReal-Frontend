@@ -13,7 +13,7 @@
           </div>
           <div class="bio-block">
             <h1 class="full-name">{{ user.firstName }} {{ user.lastName }}</h1>
-            <p class="username">@{{ user_id}}</p>
+            <p class="username">@{{ username }}</p>
           </div>
           <a routerLink="/profile/{{ username }}/edit" class="outer-fa">
             <button class="fa fa-gear text-glow"></button>
@@ -21,15 +21,23 @@
         </div>
         <p class="bio">{{ user.bio }}</p>
         <div class="add-friend">
-          <span class="add-friend-content">Add Friend: </span>
+          <span class="add-friend-content">Add Friends</span>
           <form [formGroup]="addFriendForm" (ngSubmit)="addFriend()">
             <input
               type="text"
-              class="friend-input add-friend-content"
+              class="friend-input"
               formControlName="friendName"
             />
             <button type="submit" class="button-card">Submit</button>
           </form>
+          <span class="recently-added"
+            >Recently Added Friends (click to Unfriend)</span
+          >
+          <div class="friends-list">
+            <div *ngFor="let name of user.friendNames">
+              <span (click)="removeFriend(name)">{{ name }}</span>
+            </div>
+          </div>
         </div>
 
         <div class="memories">

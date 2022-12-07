@@ -18,14 +18,10 @@ export class ProfileComponent implements OnInit {
     private WebReqService: WebRequestService,
     private http: HttpClient
   ) {}
-  user_id = sessionStorage.getItem('username');
-  url = `http://localhost:3000/api/users/${this.user_id}`;
-  first_name = '';
-  last_name = '';
-  bio = '';
+  username = sessionStorage.getItem('username');
+  url = `http://localhost:3000/api/users/${this.username}`;
   profilePic = null;
   route = 'profile';
-  username: string | undefined;
   user: User = {
     username: '',
     password: '',
@@ -35,8 +31,7 @@ export class ProfileComponent implements OnInit {
     updateDate: new Date(),
     spotifyId: '',
     friendNames: [],
-    reels: [
-    ],
+    reels: [],
     email: '',
     profilePic: null,
     bio: '',
@@ -46,14 +41,11 @@ export class ProfileComponent implements OnInit {
   });
 
   getSpotify(songId: string): SafeUrl {
-    console.log(
-      `https://open.spotify.com/embed/track/${songId}?utm_source=generator`
-    );
     return this.sanitizer.bypassSecurityTrustResourceUrl(
       `https://open.spotify.com/embed/track/${songId}?utm_source=generator`
     );
   }
- 
+
   addFriend() {
     this.WebReqService.patch('addFriend', {
       username: this.username,
@@ -63,29 +55,42 @@ export class ProfileComponent implements OnInit {
         console.log(res);
       };
     });
-    alert('added ' + this.addFriendForm.value.friendName);
+    this.user.friendNames = [
+      ...this.user.friendNames,
+      this.addFriendForm.value.friendName!,
+    ];
+  }
+
+  removeFriend(friendName: string) {
+    this.WebReqService.patch('removeFriend', {
+      username: this.username,
+      friendName: friendName,
+    }).subscribe(() => {
+      (res: any) => {
+        console.log(res);
+      };
+    });
+    this.user.friendNames = this.user.friendNames.filter(
+      (name: string) => name !== friendName
+    );
   }
 
   ngOnInit(): void {
-    this.http
-        .get(this.url)
-        .subscribe((res: any) => {
-          if (res['status'] == 'ok') {
-            console.log(res);
-            this.user = res['result'];
-            /** 
+    this.http.get(this.url).subscribe((res: any) => {
+      if (res['status'] == 'ok') {
+        console.log(res);
+        this.user = res['result'];
+        /** 
             this.first_name = res['result']['firstName'];
             this.last_name = res['result']['lastName'];
             this.bio = res['result']['bio'];
             this.profilePic = res['result']['profilePic'];
             **/
-            console.log(res['result']['firstName']);
-          }
-          if (res['status'] == 'error') {
-            console.log(res);
-            alert(res['data']);
-          }
-        });
-    }
+      }
+      if (res['status'] == 'error') {
+        console.log(res);
+        alert(res['data']);
+      }
+    });
   }
-
+}
