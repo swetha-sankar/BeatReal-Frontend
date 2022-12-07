@@ -20,31 +20,22 @@ interface FormObject {
 })
 export class ProfileEditComponent implements OnInit {
   username: string = '';
-  constructor(
-    private WebReqService: WebRequestService,
-    private router: ActivatedRoute
-  ) {
-    this.username = this.router.snapshot.params['username'];
+  constructor(private WebReqService: WebRequestService) {
+    this.username = sessionStorage.getItem('username')!;
   }
   ngOnInit(): void {
-    //this.getUser();
+    this.getUser();
     console.log('hello');
   }
 
-  userObject: FormObject = {
-    username: '',
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    bio: '',
-  };
+  userObject: any;
   getUser() {
-    this.WebReqService.get('users/638badeec1f073c30c2aa54b').subscribe(
-      (res: any) => {
-        this.userObject = res.result;
-        console.log(this.userObject);
-      }
-    );
+    this.WebReqService.get(`users/${this.username}`).subscribe((res: any) => {
+      this.userObject = res.result;
+      this.userObject.newUserName = null;
+      this.userObject.oldUserName = sessionStorage.getItem(`username`);
+      console.log(this.userObject);
+    });
   }
 
   editProfileForm = new FormGroup({
@@ -64,10 +55,15 @@ export class ProfileEditComponent implements OnInit {
     //'keyof formobject' must be specified
     Object.keys(this.editProfileForm.controls).forEach((control: string) => {
       if (this.editProfileForm.value[control as keyof FormObject] != null) {
+        console.log('hello');
         switch (control) {
           case 'username':
-            this.userObject.username =
+            this.userObject.newUserName =
               this.editProfileForm.value[control as keyof FormObject]!;
+            sessionStorage.setItem(
+              'username',
+              this.editProfileForm.value[control as keyof FormObject]!
+            );
             break;
           case 'firstName':
             this.userObject.firstName =
@@ -93,10 +89,8 @@ export class ProfileEditComponent implements OnInit {
   }
 
   editUserRequest() {
-    this.WebReqService.put(
-      'editUser/638badeec1f073c30c2aa54b', //dummy value user
-      this.userObject
-    ).subscribe(() => {
+    console.log(this.userObject);
+    this.WebReqService.patch('editUser', this.userObject).subscribe(() => {
       (res: any) => {
         console.log(res);
       };
