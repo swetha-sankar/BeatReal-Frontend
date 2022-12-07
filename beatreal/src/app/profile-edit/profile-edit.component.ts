@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { WebRequestService } from '../web-request.service';
 import { HttpClient } from '@angular/common/http';
+import { ReadStream } from 'fs';
 
 interface FormObject {
   firstName: string;
@@ -16,6 +17,7 @@ interface FormObject {
 })
 export class ProfileEditComponent implements OnInit {
   username: string = '';
+  url: string | ArrayBuffer | null = '';
   constructor(private WebReqService: WebRequestService, private http: HttpClient ) {
     this.username = localStorage.getItem('username')!;
   }
@@ -42,7 +44,18 @@ export class ProfileEditComponent implements OnInit {
   profilePicForm = new FormGroup({
     profilePic: new FormControl(null, [Validators.required]),
   });
-
+  onSelectFile(event:any){
+    if(event.target!.files! && event.target.files[0]){
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target!.files[0]!);
+      reader.onload = (event) => {
+        if(event!.target!.result){
+          this.url = event!.target!.result;
+        }
+       
+      }
+    }
+  }
   onSubmit() {
     //Object.keys will find all the keys in the form group such as Username, Firstname ...
     //for each key we will use that as an index for form.value[key].
@@ -60,7 +73,6 @@ export class ProfileEditComponent implements OnInit {
               this.editProfileForm.value[control as keyof FormObject]!;
             break;
           case 'bio':
-            console.log("hello swetha");
             this.userObject.bio =
               this.editProfileForm.value[control as keyof FormObject]!;
             break;

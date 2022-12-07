@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
 import { Reel, User } from 'src/types/types';
 import { HttpClient } from '@angular/common/http';
 import { WebRequestService } from '../web-request.service';

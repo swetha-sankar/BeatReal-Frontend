@@ -5,7 +5,7 @@
         <div class="profile-pic">
           <img
             class="article-image"
-            src="../../assets/emptyProfPic.png"
+            [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'"
             alt="profile pic"
           />
         </div>
@@ -18,6 +18,7 @@
             type="file"
             placeholder="Edit Profile Pic"
             accept=".jpg, .png, .jpeg"
+            (change) = "onSelectFile($event)"
           />
         </div>
       </form>
