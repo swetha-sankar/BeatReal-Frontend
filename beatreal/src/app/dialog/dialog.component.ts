@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { WebRequestService } from '../web-request.service';
 import { MatDividerModule } from '@angular/material/divider';
 
 
@@ -14,7 +15,7 @@ export class DialogComponent implements OnInit {
     search: new FormControl(null, [Validators.required])
   })
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private WebReqService: WebRequestService ) { }
 
   ngOnInit(): void {
     console.log('sessionStorage stuffs', sessionStorage.getItem("access_token"));
@@ -35,19 +36,21 @@ export class DialogComponent implements OnInit {
       }
     }
 
-    let songID = await fetch("https://api.spotify.com/v1/me/player/currently-playing", songParameters)
-    .then(response => response.json()).then(data =>{ return data.item.id });
 
+
+    let songID = await fetch("https://api.spotify.com/v1/me/player/currently-playing", songParameters)
+    .then(response => response.json())
+    .then(data =>{ return data.item.id });
+
+    
     // POST request to our api to post song; takes in posterName and songID
     let username: string = sessionStorage.getItem('username')!;
-    let params = {
-      method: 'PATCH',
-      headers: {
-        'posterName': username,
-        'songId': songID
-      }
-    }
-    let patchCurrent = await fetch("http://localhost:3000/api/insertReel", params)
+    this.WebReqService.patch('insertReel', {
+      posterName: username,
+      songId: songID
+    }).subscribe(() => {
+      console.log("insertedReel");
+    });
 
   }
 

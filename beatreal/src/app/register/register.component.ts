@@ -56,23 +56,24 @@ export class RegisterComponent {
           lastName: this.registerForm.value.lastname,
           phoneNumber: this.registerForm.value.phoneNumber,
         })
-        .subscribe((result) => {
-          console.log(result);
+        .subscribe((res: any) => {
+          console.log(res);
           sessionStorage.setItem('username', `${this.registerForm.value.username}`);
-          //this.router.navigateByUrl('/profile');
+          // this.router.navigateByUrl('/profile');
+          if (res['status'] == 'ok') {
+            console.log(res);
+            this.spotifyRedirect();
+            // this.router.navigateByUrl(
+            //   `/profile/${this.registerForm.value.username}`
+            // );
+          }
+          if (res['status'] == 'error') {
+            console.log(res);
+            alert(res['data']);
+          }
         });
-        this.spotifyRedirect();
-        // if (res['status'] == 'ok') {
-        //   console.log(res);
-        //   this.router.navigateByUrl(
-        //     `/profile/${this.registerForm.value.username}`
-        //   );
-        // }
-        // if (res['status'] == 'error') {
-        //   console.log(res);
-        //   alert(res['data']);
-        // }
     }
+    // this.spotifyRedirect();
     return;
   }
 
