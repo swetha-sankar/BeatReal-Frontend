@@ -31,7 +31,6 @@ export class BlobsComponent implements OnInit {
     // if (event.deltaY < 0) {
     //   scrollDist *= -1;
     // }
-    console.log('event');
     this.lavaHeight += event.deltaY * 0.2;
     if (this.lavaHeight < 0) {
       this.lavaHeight = 0;

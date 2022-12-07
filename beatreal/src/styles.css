@@ -24,6 +24,7 @@ dl {
 
 img {
   max-width: 100%;
+  height: 100%;
   display: block;
 }
 
@@ -51,7 +52,8 @@ img {
   transition: all 0.3s;
 }
 
-.text-glow:hover {
+.text-glow:hover,
+.text-glow:focus {
   text-shadow: 0 0 15px white;
   transform: scale(1.1);
 }
@@ -60,7 +62,8 @@ img {
   transition: all 0.3s;
 }
 
-.button-glow:hover {
+.button-glow:hover,
+.button-glow:focus {
   box-shadow: 0 0 15px white;
   transform: scale(1.1);
 }
