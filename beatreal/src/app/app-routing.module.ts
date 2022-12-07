@@ -10,6 +10,7 @@ import { BlobsComponent } from './blobs/blobs.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  // { path: ':username/feed', component: FeedComponent },
   { path: 'feed', component: FeedComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },

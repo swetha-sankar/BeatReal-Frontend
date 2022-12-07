@@ -22,6 +22,7 @@ export class WebRequestService {
     return this.http.post(`${this.ROOT_URL}/api/${uri}`, body);
   }
 
+
   patch(uri: string, body: Object) {
     return this.http.patch(`${this.ROOT_URL}/api/${uri}`, body);
   }
