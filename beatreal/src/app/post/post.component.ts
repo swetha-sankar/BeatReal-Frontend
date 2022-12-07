@@ -1,6 +1,4 @@
 import { Component, OnInit, Injectable, Input } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs';
 import { Post } from 'src/types/post';
 import {
   SafeUrl, DomSanitizer
