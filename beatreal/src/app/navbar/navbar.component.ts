@@ -8,10 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   @Input() route: String = '';
-  username: string = '';
-  constructor(private router: ActivatedRoute) {
-    this.username = this.router.snapshot.params['username'];
-  }
+  username: string = sessionStorage.getItem('username')!;
+  constructor() {}
 
   ngOnInit(): void {}
 }

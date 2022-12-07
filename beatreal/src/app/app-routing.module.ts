@@ -11,10 +11,10 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   // { path: ':username/feed', component: FeedComponent },
-  { path: 'feed', component: FeedComponent},
+  { path: 'feed', component: FeedComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile/:username', component: ProfileComponent },
-  { path: 'profile/:username/edit', component: ProfileEditComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'profile/edit', component: ProfileEditComponent },
   { path: 'blobs', component: BlobsComponent },
 ];
 
