@@ -31,11 +31,13 @@
             <button type="submit" class="button-card">Submit</button>
           </form>
           <span class="recently-added"
-            >Recently Added Friends (click to Unfriend)</span
+            >Recently Added Friends (Click to Unfriend)</span
           >
           <div class="friends-list">
             <div *ngFor="let name of user.friendNames">
-              <span (click)="removeFriend(name)">{{ name }}</span>
+              <span class="friend-name" (click)="removeFriend(name)">{{
+                name
+              }}</span>
             </div>
           </div>
         </div>
