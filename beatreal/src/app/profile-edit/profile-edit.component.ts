@@ -30,12 +30,10 @@ export class ProfileEditComponent implements OnInit {
 
   userObject: any;
   getUser() {
-    this.WebReqService.get(
-      `users/${sessionStorage.getItem('username')}`
-    ).subscribe((res: any) => {
+    this.WebReqService.get(`users/${this.username}`).subscribe((res: any) => {
       this.userObject = res.result;
-      this.userObject.newUsername = null;
-      this.userObject.oldUsername = sessionStorage.getItem(`username`);
+      this.userObject.newUserName = null;
+      this.userObject.oldUserName = sessionStorage.getItem(`username`);
       console.log(this.userObject);
     });
   }
@@ -60,8 +58,12 @@ export class ProfileEditComponent implements OnInit {
         console.log('hello');
         switch (control) {
           case 'username':
-            this.userObject.username =
+            this.userObject.newUserName =
               this.editProfileForm.value[control as keyof FormObject]!;
+            sessionStorage.setItem(
+              'username',
+              this.editProfileForm.value[control as keyof FormObject]!
+            );
             break;
           case 'firstName':
             this.userObject.firstName =
@@ -87,6 +89,7 @@ export class ProfileEditComponent implements OnInit {
   }
 
   editUserRequest() {
+    console.log(this.userObject);
     this.WebReqService.patch('editUser', this.userObject).subscribe(() => {
       (res: any) => {
         console.log(res);
