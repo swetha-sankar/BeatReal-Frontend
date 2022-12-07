@@ -31,8 +31,11 @@ export class FeedComponent implements OnInit {
   posts: Post[] = [];
   postTmp: Post | undefined;
   ngOnInit(): void {
-    this.router.queryParams.subscribe((params:any) => {
-      this.getPosts();
+    this.getPosts();
+    this.router.queryParams.subscribe((params: any) => {
+      if (!params['access_token']) {
+        return;
+      }
       this.access_token = params['access_token'];
       console.log('access_token:', this.access_token);
       this.token_type = params['token_type'];
