@@ -31,9 +31,10 @@ export class LoginComponent {
         .subscribe((res: any) => {
           if (res['status'] == 'ok') {
             console.log(res);
-            this.router.navigateByUrl(
-              `/profile/${this.loginForm.value.username}`
-            );
+            window.location.href = "http://localhost:3000/spotify/login";
+            // this.router.navigateByUrl(
+            //   `/profile/${this.loginForm.value.username}`
+            // );
           }
           if (res['status'] == 'error') {
             console.log(res);
