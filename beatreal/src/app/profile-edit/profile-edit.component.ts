@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { first } from 'rxjs';
-import { User } from 'src/types/types';
 import { WebRequestService } from '../web-request.service';
+import { HttpClient } from '@angular/common/http';
 
 interface FormObject {
-  username: string;
   firstName: string;
   lastName: string;
-  phoneNumber: string;
   bio: string;
 }
 
@@ -20,8 +16,8 @@ interface FormObject {
 })
 export class ProfileEditComponent implements OnInit {
   username: string = '';
-  constructor(private WebReqService: WebRequestService) {
-    this.username = sessionStorage.getItem('username')!;
+  constructor(private WebReqService: WebRequestService, private http: HttpClient ) {
+    this.username = localStorage.getItem('username')!;
   }
   ngOnInit(): void {
     this.getUser();
@@ -33,16 +29,14 @@ export class ProfileEditComponent implements OnInit {
     this.WebReqService.get(`users/${this.username}`).subscribe((res: any) => {
       this.userObject = res.result;
       this.userObject.newUserName = null;
-      this.userObject.oldUserName = sessionStorage.getItem(`username`);
+      this.userObject.oldUserName = localStorage.getItem(`username`);
       console.log(this.userObject);
     });
   }
 
   editProfileForm = new FormGroup({
-    username: new FormControl(null, [Validators.required]),
     firstName: new FormControl(null, [Validators.required]),
     lastName: new FormControl(null, [Validators.required]),
-    phoneNumber: new FormControl(null, [Validators.required]),
     bio: new FormControl(null, [Validators.required]),
   });
   profilePicForm = new FormGroup({
@@ -57,14 +51,6 @@ export class ProfileEditComponent implements OnInit {
       if (this.editProfileForm.value[control as keyof FormObject] != null) {
         console.log('hello');
         switch (control) {
-          case 'username':
-            this.userObject.newUserName =
-              this.editProfileForm.value[control as keyof FormObject]!;
-            sessionStorage.setItem(
-              'username',
-              this.editProfileForm.value[control as keyof FormObject]!
-            );
-            break;
           case 'firstName':
             this.userObject.firstName =
               this.editProfileForm.value[control as keyof FormObject]!;
@@ -73,11 +59,8 @@ export class ProfileEditComponent implements OnInit {
             this.userObject.lastName =
               this.editProfileForm.value[control as keyof FormObject]!;
             break;
-          case 'phoneNumber':
-            this.userObject.phoneNumber =
-              this.editProfileForm.value[control as keyof FormObject]!;
-            break;
           case 'bio':
+            console.log("hello swetha");
             this.userObject.bio =
               this.editProfileForm.value[control as keyof FormObject]!;
             break;
@@ -85,7 +68,6 @@ export class ProfileEditComponent implements OnInit {
       }
     });
     this.editUserRequest();
-    this.editProfileForm.reset();
   }
 
   editUserRequest() {
