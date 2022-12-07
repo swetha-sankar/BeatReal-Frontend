@@ -31,7 +31,7 @@ export class LoginComponent {
         .subscribe((res: any) => {
           if (res['status'] == 'ok') {
             console.log(res);
-            sessionStorage.setItem(
+            localStorage.setItem(
               'username',
               `${this.loginForm.value.username}`
             );

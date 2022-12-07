@@ -28,7 +28,7 @@ export class CommentsComponent implements OnInit {
       alert('Please type a comment');
     } else {
       this.WebReqService.patch('commentReel', {
-        commenterName: sessionStorage.getItem('username'),
+        commenterName: localStorage.getItem('username'),
         textContent: this.commentForm.get('textContent')!.getRawValue(),
         posterName: this.reel?.posterName,
         reelId: this.reel!.reelId,
@@ -37,7 +37,7 @@ export class CommentsComponent implements OnInit {
         //a refresh
         this.comments!.push({
           commentId: 'ajdsfh',
-          commenterName: sessionStorage.getItem('username')!,
+          commenterName: localStorage.getItem('username')!,
           textContent: this.commentForm.get('textContent')!.getRawValue(),
         });
         this.commentForm.reset();

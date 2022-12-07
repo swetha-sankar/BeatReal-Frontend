@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
     private WebReqService: WebRequestService,
     private http: HttpClient
   ) {}
-  username = sessionStorage.getItem('username');
+  username = localStorage.getItem('username');
   url = `http://localhost:3000/api/users/${this.username}`;
   profilePic = null;
   route = 'profile';
