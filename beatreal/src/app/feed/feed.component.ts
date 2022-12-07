@@ -31,7 +31,7 @@ export class FeedComponent implements OnInit {
   posts: Post[] = [];
   postTmp: Post | undefined;
   ngOnInit(): void {
-    this.router.queryParams.subscribe((params) => {
+    this.router.queryParams.subscribe((params:any) => {
       this.getPosts();
       this.access_token = params['access_token'];
       console.log('access_token:', this.access_token);
@@ -39,11 +39,11 @@ export class FeedComponent implements OnInit {
       this.scope = params['scope'];
       this.expires_in = params['expires_in'];
       this.refresh_token = params['refresh_token'];
-      sessionStorage.setItem('access_token', this.access_token);
-      sessionStorage.setItem('token_type', this.token_type);
-      sessionStorage.setItem('scope', this.scope);
-      sessionStorage.setItem('expires_in', this.expires_in.toString());
-      sessionStorage.setItem('refresh_token', this.refresh_token);
+      localStorage.setItem('access_token', this.access_token);
+      localStorage.setItem('token_type', this.token_type);
+      localStorage.setItem('scope', this.scope);
+      localStorage.setItem('expires_in', this.expires_in.toString());
+      localStorage.setItem('refresh_token', this.refresh_token);
     });
   }
 
@@ -55,7 +55,7 @@ export class FeedComponent implements OnInit {
 
   getPosts() {
     this.WebReqService.get(
-      `users/${sessionStorage.getItem('username')}/feed`
+      `users/${localStorage.getItem('username')}/feed`
     ).subscribe((res: any) => {
       this.posts = res.result;
     });
