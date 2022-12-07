@@ -4,6 +4,7 @@ import { Component, OnInit, Injectable, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs';
 import { Post } from 'src/types/post';
+import { Reel } from 'src/types/reel';
 //import 'rxjs/add/operator/catch';
 //import 'rxjs/add/operator/map';
 
@@ -16,6 +17,7 @@ import { Post } from 'src/types/post';
 export class PostComponent implements OnInit {
   //constructor (private http: Http) {}
   @Input() post: Post | undefined;
+  reel: Reel | undefined;
   constructor(private httpClient: HttpClient) {}
 
   liked = false;
@@ -30,8 +32,7 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('1');
-    console.log(this.post);
+    this.reel = this.post?.reel;
   }
 
   songUrl = 'https://api.spotify.com/v1/me/player/currently-playing';

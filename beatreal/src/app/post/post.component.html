@@ -30,7 +30,10 @@
       View X Comments
     </button>
     <div *ngIf="viewCommentsParent">
-      <app-comments (viewCommentsEvent)="toggleComments()"></app-comments>
+      <app-comments
+        [reel]="reel"
+        (viewCommentsEvent)="toggleComments()"
+      ></app-comments>
     </div>
   </div>
 </div>
