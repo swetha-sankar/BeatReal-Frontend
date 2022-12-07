@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/types/types';
+import { Reel, User } from 'src/types/types';
 import { HttpClient } from '@angular/common/http';
 import { WebRequestService } from '../web-request.service';
 
@@ -80,6 +80,10 @@ export class ProfileComponent implements OnInit {
       if (res['status'] == 'ok') {
         console.log(res);
         this.user = res['result'];
+        this.user.reels = this.user.reels.map((reel: Reel) => ({
+          ...reel,
+          date: new Date(reel.date),
+        }));
         /** 
             this.first_name = res['result']['firstName'];
             this.last_name = res['result']['lastName'];
@@ -87,6 +91,7 @@ export class ProfileComponent implements OnInit {
             this.profilePic = res['result']['profilePic'];
             **/
       }
+      console.log(this.user);
       if (res['status'] == 'error') {
         console.log(res);
         alert(res['data']);
