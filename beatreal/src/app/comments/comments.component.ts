@@ -17,7 +17,7 @@ export class CommentsComponent implements OnInit {
   comments: BRComment[] = [];
 
   commentForm = new FormGroup({
-    textContent: new FormControl(null, [Validators.required]),
+    textContent: new FormControl('', [Validators.required]),
   });
 
   toggleComments() {
@@ -30,7 +30,7 @@ export class CommentsComponent implements OnInit {
       this.WebReqService.patch('commentReel', {
         commenterName: sessionStorage.getItem('username'),
         textContent: this.commentForm.get('textContent')!.getRawValue(),
-        posterName: sessionStorage.getItem('username'),
+        posterName: this.reel?.posterName,
         reelId: this.reel!.reelId,
       }).subscribe(() => {
         //This is just for display, the backend gets updated too but this is just to not force
@@ -40,6 +40,7 @@ export class CommentsComponent implements OnInit {
           commenterName: sessionStorage.getItem('username')!,
           textContent: this.commentForm.get('textContent')!.getRawValue(),
         });
+        this.commentForm.value.textContent = '';
       });
     }
   }

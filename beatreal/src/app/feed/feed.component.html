@@ -6,6 +6,9 @@
     </section>
     <app-navbar [route]="route"></app-navbar>
     <section class="feed-list">
+      <h1 class="nothing-here" *ngIf="posts.length === 0">
+        Looks like there's nothing here yet...
+      </h1>
       <div *ngFor="let post of posts">
         <app-post [post]="post"></app-post>
       </div>
