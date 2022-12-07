@@ -22,47 +22,14 @@ export class ProfileComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private http: HttpClient
   ) {}
-
-
+  user_id = sessionStorage.getItem('username');
+  url = `http://localhost:3000/api/users/${this.user_id}`;
+  first_name = '';
+  last_name = '';
+  bio = '';
+  profilePic = null;
   route = 'profile';
   username: string | undefined;
-
-  user: User = {
-    username: 'test_username',
-    password: '',
-    firstName: 'First',
-    lastName: 'Last',
-    phoneNumber: '',
-    updateDate: new Date(),
-    spotifyId: '',
-    friendNames: [],
-    reels: [
-      {
-        reelId: 'saflkhasd',
-        posterName: 'aidant',
-        songId: '6gi6y1xwmVszDWkUqab1qw',
-        date: new Date(),
-        likes: [], // List of userNames's
-        comments: [],
-      },
-      {
-        reelId: 'asdfwq',
-        posterName: 'aidant',
-        songId: '6gi6y1xwmVszDWkUqab1qw',
-        date: new Date(),
-        likes: [], // List of userNames's
-        comments: [],
-      },
-    ],
-    email: '',
-    profilePic: null,
-    bio: 'Welcome to my profile!Welcome to my profile!Welcome to my profile!Welcome to my profile!Welcome to my profile!Welcome to my profile!Welcome to my profile!Welcome to my profile!Welcome to my profile!Welcome to my profile!Welcome to my profile!Welcome to my profile!Welcome to my profile!',
-  };
-
-  /**"https://open.spotify.com/embed/track/{{
-              reel.songId
-            }}?utm_source=generator" */
-
   getSpotify(songId: string): SafeUrl {
     console.log(
       `https://open.spotify.com/embed/track/${songId}?utm_source=generator`
@@ -71,12 +38,6 @@ export class ProfileComponent implements OnInit {
       `https://open.spotify.com/embed/track/${songId}?utm_source=generator`
     );
   }
-  user_id = sessionStorage.getItem('username');
-  url = `http://localhost:3000/api/users/${this.user_id}`;
-  first_name = '';
-  last_name = '';
-  bio = '';
-  profilePic = null;
   ngOnInit(): void {
     this.http
         .get(this.url)
