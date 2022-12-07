@@ -1,10 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-//import { Observable } from 'rxjs/Observable';
-//import { Http, Response } from '@angular/http';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs';
-//import 'rxjs/add/operator/catch';
-//import 'rxjs/add/operator/map';
+import {
+  SafeUrl, DomSanitizer
+} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post',
@@ -13,10 +10,14 @@ import { map } from 'rxjs';
 })
 @Injectable()
 export class PostComponent implements OnInit {
-  //constructor (private http: Http) {}
-  constructor(private httpClient: HttpClient) {}
+  constructor(private sanitizer: DomSanitizer) {}
 
   liked = false;
+
+  //sample posts to get from feed
+  username = "lauren1";
+	profilePic = "";
+	reel = {songId: "71qKWIBggc7poNXclWN53M"};
 
   handleLike() {
     this.liked = !this.liked;
@@ -28,9 +29,11 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  
-  updateSong(songId: String) {
-    let url = "https://open.spotify.com/embed/track/"+songId+"?utm_source=generator";
-    document.getElementById("postIframe").src = url;
+
+
+  getSpotify(songId: string): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://open.spotify.com/embed/track/${songId}?utm_source=generator`
+    );
   }
 }

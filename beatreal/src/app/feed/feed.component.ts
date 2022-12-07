@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { ActivatedRoute } from '@angular/router';
 import * as internal from 'stream';
+import { WebRequestService } from '../web-request.service';
 
 @Component({
   selector: 'app-feed',
@@ -15,8 +16,9 @@ export class FeedComponent implements OnInit {
   scope!: string;
   expires_in!: number;
   refresh_token!: string;
-
-  constructor(public dialog: MatDialog, private router: ActivatedRoute) {
+  username: string = '';
+  constructor(public dialog: MatDialog, private router: ActivatedRoute, private WebReqService: WebRequestService) {
+    this.username = sessionStorage.getItem('username')!;
   }
 
   openDialog() {
@@ -26,6 +28,7 @@ export class FeedComponent implements OnInit {
   
 
   ngOnInit(): void {
+    
     this.router.queryParams.subscribe(params => {
       this.access_token = params['access_token'];
       console.log('access_token:', this.access_token);
@@ -39,13 +42,29 @@ export class FeedComponent implements OnInit {
       sessionStorage.setItem('expires_in', this.expires_in.toString());
       sessionStorage.setItem('refresh_token', this.refresh_token);
     })
+
+    this.getUser();
+
   }
   
   route = 'feed';
 
-  posts = [1, 2];
+  
+  posts: any;
+  //http://localhost:3000/api/users/:username/feed
+  getUser() {
+    this.WebReqService.get(`users/${this.username}/feed`).subscribe((res: any) => {
+      this.posts = res.result;
+    });
+    console.log(this.posts);
+  }
+  
+
+  //posts = [1, 2, 3];
+  
 
   postReel = () => {
     alert('postReel was called');
   };
+
 }
