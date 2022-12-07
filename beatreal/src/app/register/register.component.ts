@@ -86,4 +86,5 @@ export class RegisterComponent {
   spotifyRedirect() {
     console.log('redirected to spotify authorization');
     window.location.href = 'http://localhost:3000/spotify/login';
+  }
 }
