@@ -19,6 +19,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { DialogComponent } from './dialog/dialog.component';
 import { BlobsComponent } from './blobs/blobs.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -36,6 +39,7 @@ import { map } from 'rxjs';
     PostComponent,
     CommentsComponent,
     ProfileEditComponent,
+    DialogComponent,
     BlobsComponent,
   ],
   imports: [
@@ -48,7 +52,10 @@ import { map } from 'rxjs';
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
-    HttpClientModule,
+    MatDialogModule,
+    MatDividerModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },

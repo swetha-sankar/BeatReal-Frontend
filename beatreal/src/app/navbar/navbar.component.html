@@ -1,13 +1,11 @@
 <nav>
   <span class="nav-card button-glow" [ngClass]="{ selected: route == 'feed' }">
-    <a routerLink="/{{ username }}/feed" class="nav-element">Feed</a>
+    <a routerLink="/feed" class="nav-element">Feed</a>
   </span>
 
   <span
     class="nav-card button-glow"
     [ngClass]="{ selected: route == 'profile' }"
-    ><a class="nav-element" routerLink="/profile/{{ username }}"
-      >Profile</a
-    ></span
+    ><a class="nav-element" routerLink="/profile">Profile</a></span
   >
 </nav>

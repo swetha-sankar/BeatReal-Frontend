@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) {}
 
+
   route = 'profile';
   username: string | undefined;
 
@@ -70,7 +71,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.router.snapshot.params);
-    this.username = this.router.snapshot.params['username'];
+    console.log(sessionStorage.getItem('username'));
   }
 }
