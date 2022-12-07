@@ -14,11 +14,33 @@
           <div class="bio-block">
             <h1 class="full-name">{{ user.firstName }} {{ user.lastName }}</h1>
             <p class="username">@{{ user.username }}</p>
-            <p class="bio">{{ user.bio }}</p>
           </div>
           <a routerLink="/profile/{{ username }}/edit" class="outer-fa">
-            <button class="fa fa-gear"></button>
+            <button class="fa fa-gear text-glow"></button>
           </a>
+        </div>
+        <p class="bio">{{ user.bio }}</p>
+        <div class="memories">
+          <div *ngFor="let reel of user.reels">
+            <h2 class="memory-date">
+              {{
+                reel.date.toLocaleDateString("en-us", {
+                  weekday: "long",
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric"
+                })
+              }}
+            </h2>
+            <iframe
+              style="border-radius: 12px"
+              [src]="getSpotify(reel.songId)"
+              frameBorder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>

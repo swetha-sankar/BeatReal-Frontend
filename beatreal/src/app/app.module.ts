@@ -3,7 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import {
+  ErrorStateMatcher,
+  ShowOnDirtyErrorStateMatcher,
+} from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +22,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { BlobsComponent } from './blobs/blobs.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import {map} from 'rxjs';
+import { map } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,9 @@ import {map} from 'rxjs';
     MatCardModule,
     HttpClientModule,
   ],
-  providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
+  providers: [
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
