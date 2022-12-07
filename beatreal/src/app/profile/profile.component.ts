@@ -9,6 +9,7 @@ import {
 } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/types/types';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +19,8 @@ import { User } from 'src/types/types';
 export class ProfileComponent implements OnInit {
   constructor(
     private router: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private http: HttpClient
   ) {}
 
 
@@ -69,8 +71,29 @@ export class ProfileComponent implements OnInit {
       `https://open.spotify.com/embed/track/${songId}?utm_source=generator`
     );
   }
-
+  user_id = sessionStorage.getItem('username');
+  url = `http://localhost:3000/api/users/${this.user_id}`;
+  first_name = '';
+  last_name = '';
+  bio = '';
+  profilePic = null;
   ngOnInit(): void {
-    console.log(sessionStorage.getItem('username'));
+    this.http
+        .get(this.url)
+        .subscribe((res: any) => {
+          if (res['status'] == 'ok') {
+            console.log(res);
+            this.first_name = res['result']['firstName'];
+            this.last_name = res['result']['lastName'];
+            this.bio = res['result']['bio'];
+            this.profilePic = res['result']['profilePic'];
+            console.log(res['result']['firstName']);
+          }
+          if (res['status'] == 'error') {
+            console.log(res);
+            alert(res['data']);
+          }
+        });
+    }
   }
-}
+
