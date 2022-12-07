@@ -35,7 +35,8 @@ export class LoginComponent {
               'username',
               `${this.loginForm.value.username}`
             );
-            this.router.navigateByUrl(`/profile`);
+            window.location.href = "http://localhost:3000/spotify/login";
+            // this.router.navigateByUrl(`/profile`);
           }
           if (res['status'] == 'error') {
             console.log(res);

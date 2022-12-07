@@ -4,15 +4,12 @@
       <div class="profile-pic">
         <img src="./assets/emptyProfPic.png" alt="ProfilePic" />
       </div>
-      <span class="username">Username</span>
+      <span class="username">@{{ post.username }}</span>
     </div>
-    <button id="spotifyTest" (click)="getSong()">
-      Press Me for Current Song
-    </button>
   </div>
   <iframe
     style="border-radius: 12px"
-    src="https://open.spotify.com/embed/track/6gi6y1xwmVszDWkUqab1qw?utm_source=generator"
+    [src]="getSpotify(post.reel.songId)"
     frameBorder="0"
     allowfullscreen=""
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"

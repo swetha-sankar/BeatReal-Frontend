@@ -62,7 +62,6 @@ export class RegisterComponent {
             'username',
             `${this.registerForm.value.username}`
           );
-          // this.router.navigateByUrl('/profile');
           if (res['status'] == 'ok') {
             console.log(res);
             sessionStorage.setItem(
@@ -81,83 +80,11 @@ export class RegisterComponent {
           }
         });
     }
-    // this.spotifyRedirect();
     return;
   }
 
   spotifyRedirect() {
-    let state = makeid(16);
-    let scope = `streaming user-read-email user-read-private user-library-read user-library-modify
-    user-read-playback-state user-modify-playback-state`;
-
-    // res.send({ status: "ok", result: authorize_url })
-
     console.log('redirected to spotify authorization');
-
-    // const params = new URLSearchParams();
-    // params.append('response_type', 'code');
-    // params.append('client_id', `${process.env?.['spotifyClientID']}`);
-    // params.append('scope', `${scope}`);
-    // params.append('redirect_uri', 'http://localhost:3000/spotify/callback');
-    // params.append('state', `${state}`);
-    // params.append('show_dialog', 'true');
-    // window.location.href = `https://accounts.spotify.com/authorize?${params.toString()}`;
-
-    // window.location.href = `https://accounts.spotify.com/authorize?response_type=code?client_id=${process.env?.['spotifyClientID']}?scope=${scope}?redirect_uri=${process.env?.['spotifyRedirectURI']}?state=${state}?show_dialog=true`;
-    // window.location.href = `https://accounts.spotify.com/authorize?response_type=code?client_id=3ecc3a4b5b974d02a9b9e12b7f2ace9b?scope=${scope}?redirect_uri=http://localhost:3000/spotify/callback?state=${state}?show_dialog=true`;
-    // let getEndpoint = 'http://localhost:3000/spotify/login';
-    // let getResponse = fetch(getEndpoint, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Authorization':' ',
-    //     'Content-Type': 'application/json',
-    //     // 'Access-Control-Allow-Origin': '*',
-    //     // 'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
-    //     // 'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With'
-    //   }
-    // })
     window.location.href = 'http://localhost:3000/spotify/login';
-
-    /*
-    window.location.href = "https://accounts.spotify.com/authorize?" +
-    querystring.stringify({
-      response_type: "code",
-      client_id: process.env.spotifyClientID
-        ? process.env.spotifyClientID
-        : "",
-      scope: scope,
-      redirect_uri: "http://localhost:3000/spotify/callback",
-      // redirect_uri: process.env.spotifyRedirectURI
-      //   ? process.env.spotifyRedirectURI
-      //   : "",
-      state: state,
-      show_dialog: true, //false(by default). Whether or not to force the user to approve the app again if they’ve already done so
-    })
-    */
-
-    // window.location.href = "https://accounts.spotify.com/authorize?client_id=3ecc3a4b5b974d02a9b9e12b7f2ace9b&response_type=code&redirect_uri=http://localhost:3000/spotify/callback&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";
-
-    //TODO: .env to hide spotify stuff, get the spotify ID, add it to the user's profile
-    //need to figure out how to get the GUID of the user we just created, where to do this call to post the spotifyID
-
-    /*
-         let idEndpoint = 'https://api.spotify.com/v1/me/id';
-        let getResponse = fetch( idEndpoint, {
-          method: 'GET',
-          headers: {
-            'Authorization':' ',
-            'Content-Type':'application/json'
-          }
-        });
-
-        let postEndpoint = 'http://localhost:3000/spotify/link//getResponse';
-        let postResponse = fetch( postEndpoint, {
-          method: 'post',
-          headers: {
-            'Authorization':' ',
-            'Content-Type':'application/json'
-          }
-        });
-        */
   }
 }
